@@ -1,0 +1,38 @@
+*** Settings ***
+Library     SeleniumLibrary
+Library  ../../VaultConfig/VaultUtils.py
+Variables        ../../Resources/WebElements.py
+Variables        ../../Resources/Testdata.py
+
+
+*** Variables ***
+${browser}  chrome
+${Timeout}       20s
+
+
+
+
+*** Keywords ***
+Login To Call taker Operartor
+    ${ngcad_url}    ${ngcad_username}    ${ngcad_password}=    get_ngcad_calltaker_details
+    Open Browser    ${ngcad_url}    chrome      options=add_argument("--ignore-certificate-errors")
+    Maximize Browser Window
+    SeleniumLibrary.Wait Until Page Contains Element    ${CAD_Dispatcher_Selection}         ${Timeout}
+    SeleniumLibrary.Select From List By Label   ${CAD_Dispatcher_Selection}      ${CallTakerRoletype}
+    SeleniumLibrary.Wait Until Page Contains Element    ${CAD_Dispatcher_Selection}         ${Timeout}
+    SeleniumLibrary.Select From List By Value   ${CAD_Dispatcher_Workstation}      ${Cad_Workstation}
+    SeleniumLibrary.Wait Until Page Contains Element    ${DisPUserNameField}         ${Timeout}
+    SeleniumLibrary.Input Text      ${DisPUserNameField}         ${DispatcherUName}
+    SeleniumLibrary.Wait Until Page Contains Element    ${UserPasswordField}         ${Timeout}
+    SeleniumLibrary.Input Text      ${UserPasswordField}         ${DispatcherUPassword}
+    SeleniumLibrary.capture page screenshot     C:\Users\TMPL-FA-1879\PycharmProjects\RobotFramework/CAD.png
+    SeleniumLibrary.Wait Until Page Contains Element    ${CAD_Login}         ${Timeout}
+    SeleniumLibrary.Click Button    ${CAD_Login}
+    SeleniumLibrary.Wait Until Element Is Visible       ${CTCreateManualEvent}    ${Timeout}
+    SeleniumLibrary.Title Should Be     Trinity Respond
+    SeleniumLibrary.capture page screenshot     C:\Users\TMPL-FA-1879\PycharmProjects\RobotFramework/Login_to_Dispatcher.png
+
+
+*** Test Cases ***
+Scenario: Login to Application
+    Login To Call taker Operartor

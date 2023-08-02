@@ -1,0 +1,11 @@
+ngCadSelectOperator = "//select[contains(@formcontrolname,'operator')]"
+ngcadSelectExtension = "//select[@formcontrolname='extension']"
+ngcadEnterUsename = "//input[contains(@placeholder,'Username')]"
+ngCadpassword = "//input[contains(@placeholder,'Password')]"
+ngCadlogin = "//button[contains(.,'LOG IN')]"
+
+ngCadManualEvent = "(//div[contains(.,'Manual Event')])[4]"
+ngCADSideMenu = "/html/body/app-root/app-app-load/div/div/t-container/t-sidebar/div"
+ngCADEventcreatedtoastervalidation = "//div[@class='messageBoxContent'][contains(.,'Event Created Successfully')]"
+
+

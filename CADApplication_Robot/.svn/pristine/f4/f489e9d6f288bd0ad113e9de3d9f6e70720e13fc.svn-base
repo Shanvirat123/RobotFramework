@@ -1,0 +1,12 @@
+*** Settings ***
+
+Resource    ../../../Keywords/CallTaker/CallTaker_Home_Page.robot
+
+*** Test Cases ***
+Testcase_One: Verify user is able to Edit ANI
+            [Tags]    AS-4209
+            Given Login To Call taker Operartor
+            When CT Verify CallTaker Home Page And Title
+            And CT Create Manual Event With Number
+            And CT Update ANI info from the ANI/ALI section
+

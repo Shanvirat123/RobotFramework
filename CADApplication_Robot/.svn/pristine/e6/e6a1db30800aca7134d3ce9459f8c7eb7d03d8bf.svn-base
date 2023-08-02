@@ -1,0 +1,9 @@
+*** Settings ***
+
+Resource    ../../../Keywords/CallTaker/CallTaker_Home_Page.robot
+
+*** Test Cases ***
+Scenario: Verfiy calltype change to Blank call
+    Login To Call taker Operartor
+    CT Create Manual Event With Number
+

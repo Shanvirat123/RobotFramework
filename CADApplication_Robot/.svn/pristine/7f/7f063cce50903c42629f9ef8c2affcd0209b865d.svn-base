@@ -1,0 +1,97 @@
+CallTakerUName = "ROBOCT"
+CallTakerUPassword = "123456"
+CTPrimaryNarrative = "Automation"
+CTSelectManualEventType = "Manual With Num"
+CTDistressMapSearch = "Bangalore,"
+CTMapMarkedLocationSuccessfullyToasterMessage = "Event marked successfully"
+CTDistressFirstName = "Automation"
+CTDistressLastName = "M"
+CTDistressGender = "FEMALE"
+CTDistressAilment = "Blind"
+CTDistressMainEventType = "ACCIDENT"
+CTDistressPhoneNumber = "6262888131"
+CTDistressAge = "35"
+CTDistressSubEventType = "ACCIDENT JUST OCCURED"
+CTDispatchEventAction = "Dispatch"
+CTManualEventDispatchSuccessfullyToasterMessage = "Event dispatched successfully"
+DROUName = "DEMODRO"
+DROEventAssignedSuccessfullyToasterMessage = "Event Assigned successfully"
+PedingEventHoldRemarks = "Automation Hold"
+CTCallClassificationReason = "Crank call"
+DROEditPedingEventFirstName = "Automation"
+DROEditPedingEventNumber = "6363888131"
+DROEditPedingEventMainEventType = "ABANDONED VEHICLE"
+DROEditPedingEventSubEventType = "VEHICLE"
+EventDetailsUpdatedSuccessfullyToasterMessage = "Event details updated"
+DispatcherUName = "AUTOMATIONDOONE"
+DispatcherUPassword = "123456"
+EditPedingEventNarrative = "Automation"
+DispEditPedingEventFirstName = "Abhi"
+DispEditPedingEventNumber = "7996994774"
+DispEditPedingEventMainEventType = "ACCIDENT"
+DispEditPedingEventSubEventType = "ACCIDENT JUST OCCURED"
+DispEditPedingEventLandMark = "RT Nagar"
+DispEditPedingEventLocality = "Bangalore"
+DispEditPedingEventAddress  = "Bangalore, Karnataka, India"
+EditPedingEventStationSearch = "CITY1"
+PedingEventCloseRemarks = "Automation Close"
+DROEventClosedSuccessfullyToasterMessage = "Event Closed successfully"
+DROAttachFIRFileType = "FIR"
+DROFileUploadedSuccessfullyToasterMessage = "File uploaded Successfully"
+DROAttachFIRChooseFilePath = "C://Users/TMPL-FA-1879/PycharmProjects/RobotFramework/UploadFiles/Automation.png"
+DispatcherUNameTwo = "AUTOMATIONDOTWO"
+DROEventTransferredSuccessfullyToasterMessage = "Event Transferred successfully"
+DispSearchEventITextField = "//input[@placeholder='Search ...']"
+PedingEventTransferMoreSelectCityField = "(//ng-select[@name='cityId'])[6]//input"
+PedingEventTransferMoreSelectCity = "CITY1"
+ManualMDTStatusUpdatedSuccessfullyToasterMessage = "Event status updated successfully"
+UnitUnassignedSuccessfullyToasterMessage = "Unit unassigned successfully"
+SupervisorUName = "SUPERVISOR"
+SupervisorUPassword = "123456"
+CTFileterStationSearch = "CHUNABHATTI"
+############ Station Operator #######
+StationOperatorUName = "ROBOSOTWO"
+StationOperatorUNameTwo = "CHUNABHATTIPS"
+SOChangeStationCity = "Mumbai"
+SOChangeStationSelect = "CHUNABHATTI"
+SOStationchangedSuccessfullyToasterMessage = "Station changed succesfully"
+SOChangeStationRemarks = "Automation"
+DisPUserNameForCityApp = "ROBODISPTHREE"
+DisptcherUPasswordForCityApp = "123456"
+RoleType="DISPATCH OFFICER"
+CallTakerRoletype="COMMUNICATION OFFICER"
+
+Cad_Workstation="102"
+CAD_Fname="shashank"
+CAD_Lame="s"
+
+CAD_SubeventType="102/01-ACCIDENT JUST OCCURED"
+CAD_Addressdata="Banglore"
+CAD_Policestation="RPF Police Station"
+CAD_UnitAssigntype="Assign"
+CAD_NarrativeDetail="Done"
+CADCCFSDeliveredToaster="CFS DELIVERED"
+
+
+
+primarynarrative = "Testing Event creation"
+Callneweventtype = "Call external number"
+phonenumber = "8749056572"
+eventdispatchmessagevalidation = "Event Created Successfully"
+CAD_Dispatcher_Selection_Timeout="5s"
+CTManualEvent_Creation_Number="6363888131"
+Cad_username="SHASHANK"
+Cad_Password="1234546"
+CT_LandmarkK='Eden'
+CT_Location='Banglore'
+CT_GenderSelection='MALE'
+CT_Phonenumber='7338336925'
+CT_fName='shashank'
+CT_SubEventTypeselection='PERSON INJURED'
+
+
+
+
+
+
+

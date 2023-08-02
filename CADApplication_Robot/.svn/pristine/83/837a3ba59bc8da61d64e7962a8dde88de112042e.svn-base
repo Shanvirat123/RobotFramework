@@ -1,0 +1,43 @@
+*** Settings ***
+
+Resource    ../../../Keywords/CallTaker/CallTaker_Home_Page.robot
+
+*** Test Cases ***
+Testcase_One: Verify distress form filling for Police agency
+            [Tags]    AS-4206
+            Given Login To Call taker Operartor
+            When CT Verify CallTaker Home Page And Title
+            And CT Create Manual Event With Number
+            Then CT Fill Distress Form for Police agency
+
+Testcase_Two: Verify distress form filling for EMS agency
+             [Tags]    AS-4207
+            Given Login To Call taker Operartor
+            When CT Verify CallTaker Home Page And Title
+            And CT Create Manual Event With Number
+            Then CT Verify distress form filling for EMS agency
+
+
+Testcase_Three: Verify distress form filling for Fire agency
+             [Tags]    AS-4208
+            Given Login To Call taker Operartor
+            When CT Verify CallTaker Home Page And Title
+            And CT Create Manual Event With Number
+            Then CT Verify distress form filling for Fire agency
+
+Testcase_Four: Verify distress form filling for multi agency
+             [Tags]   AS-4196
+            Given Login To Call taker Operartor
+            When CT Verify CallTaker Home Page And Title
+            And CT Create Manual Event With Number
+            Then CT Fill Distress Form for Police agency
+            Then CT Verify distress form filling for EMS agency
+            Then CT Verify distress form filling for Fire agency
+
+
+
+
+
+
+
+

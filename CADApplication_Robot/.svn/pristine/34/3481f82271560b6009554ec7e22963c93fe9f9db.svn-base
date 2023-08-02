@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230720 11:19:05.579" rpa="false" schemaversion="3">
+<suite id="s1" name="CADApplication Robot" source="C:\CADApplication_Robot">
+<suite id="s1-s1" name="TestCases" source="C:\CADApplication_Robot\TestCases">
+<suite id="s1-s1-s1" name="HappyFlow" source="C:\CADApplication_Robot\TestCases\HappyFlow">
+<suite id="s1-s1-s1-s1" name="CallTaker" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker">
+<suite id="s1-s1-s1-s1-s1" name="AS-4201" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker\AS-4201.robot">
+<test id="s1-s1-s1-s1-s1-t1" name="Scenario: Verfiy calltype change to Blank call" line="6">
+<kw name="Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230720 11:19:05.997" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230720 11:19:05.997" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230720 11:19:05.998" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230720 11:19:05.987" endtime="20230720 11:19:05.998"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230720 11:19:05.998" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230720 11:19:06.011" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230720 11:19:05.998" endtime="20230720 11:19:08.185"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230720 11:19:08.185" endtime="20230720 11:19:08.379"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230720 11:19:08.379" endtime="20230720 11:19:08.438"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230720 11:19:08.439" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<msg timestamp="20230720 11:19:08.750" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230720 11:19:08.750" level="FAIL">NoSuchElementException: Message: Could not locate element with visible text: COMMUNICATION OFFICER
+</msg>
+<status status="FAIL" starttime="20230720 11:19:08.438" endtime="20230720 11:19:08.759"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.759" endtime="20230720 11:19:08.760"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.760" endtime="20230720 11:19:08.761"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.761" endtime="20230720 11:19:08.762"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${DispatcherUName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.762" endtime="20230720 11:19:08.762"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.763" endtime="20230720 11:19:08.763"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${DispatcherUPassword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.763" endtime="20230720 11:19:08.763"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>C:\Users\TMPL-FA-1879\PycharmProjects\RobotFramework/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.764" endtime="20230720 11:19:08.764"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.764" endtime="20230720 11:19:08.764"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.764" endtime="20230720 11:19:08.765"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.765" endtime="20230720 11:19:08.765"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Trinity Respond</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.765" endtime="20230720 11:19:08.766"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>C:\Users\TMPL-FA-1879\PycharmProjects\RobotFramework/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230720 11:19:08.766" endtime="20230720 11:19:08.766"/>
+</kw>
+<status status="FAIL" starttime="20230720 11:19:05.986" endtime="20230720 11:19:08.767"/>
+</kw>
+<kw name="CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230720 11:19:08.768" endtime="20230720 11:19:08.768"/>
+</kw>
+<status status="FAIL" starttime="20230720 11:19:05.986" endtime="20230720 11:19:08.769">NoSuchElementException: Message: Could not locate element with visible text: COMMUNICATION OFFICER
+</status>
+</test>
+<status status="FAIL" starttime="20230720 11:19:05.616" endtime="20230720 11:19:08.772"/>
+</suite>
+<status status="FAIL" starttime="20230720 11:19:05.613" endtime="20230720 11:19:08.778"/>
+</suite>
+<status status="FAIL" starttime="20230720 11:19:05.610" endtime="20230720 11:19:08.781"/>
+</suite>
+<status status="FAIL" starttime="20230720 11:19:05.607" endtime="20230720 11:19:08.786"/>
+</suite>
+<status status="FAIL" starttime="20230720 11:19:05.583" endtime="20230720 11:19:08.790"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="CADApplication Robot">CADApplication Robot</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="TestCases">CADApplication Robot.TestCases</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="HappyFlow">CADApplication Robot.TestCases.HappyFlow</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1" name="CallTaker">CADApplication Robot.TestCases.HappyFlow.CallTaker</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1-s1-s1" name="AS-4201">CADApplication Robot.TestCases.HappyFlow.CallTaker.AS-4201</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

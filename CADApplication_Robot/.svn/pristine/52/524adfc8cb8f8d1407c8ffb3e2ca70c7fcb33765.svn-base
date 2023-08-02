@@ -1,0 +1,61 @@
+*** Settings ***
+Library     SeleniumLibrary
+Library  ../../VaultConfig/VaultUtils.py
+Variables           ../../Resources/WebElements.py
+Variables        ../../Resources/Testdata.py
+
+
+*** Variables ***
+${browser}  chrome
+${Timeout}       20s
+
+*** Keywords ***
+Login To Call taker Operartor
+    ${ngcad_url}    ${ngcad_username}    ${ngcad_password}=    get_ngcad_calltaker_details
+    Open Browser    ${ngcad_url}    chrome      options=add_argument("--ignore-certificate-errors")
+    Maximize Browser Window
+    Wait Until Page Contains Element    ${CAD_Dispatcher_Selection}         ${CAD_Dispatcher_Selection_Timeout}
+    Select From List By Label   ${CAD_Dispatcher_Selection}      ${CallTakerRoletype}
+    sleep   3
+    Select From List By Value   ${CAD_Dispatcher_Workstation}      ${Cad_Workstation}
+    Wait Until Page Contains Element    ${DisPUserNameField}         ${Timeout}
+    Input Text      ${UserNameField}        ${ngcad_username}
+    Wait Until Page Contains Element    ${UserPasswordField}         ${Timeout}
+    Input Text      ${UserPasswordField}         ${ngcad_password}
+    capture page screenshot     ${CURDIR}/Screenshots/CAD.png
+    Wait Until Page Contains Element    ${CAD_Login}         ${Timeout}
+    Click Button    ${CAD_Login}
+    Wait Until Element Is Visible       ${CTCreateManualEvent}    ${Timeout}
+    Title Should Be     ngcadapp
+    capture page screenshot     ${CURDIR}/Screenshots/Login_to_Dispatcher.png
+
+CT Create Manual Event With Number
+   Mouse Over   ${CT_CreateManualEvent}
+   Wait Until Element Is Visible    ${CT_CreateManualEvent}
+   Click Element     ${CT_CreateManualEvent}
+   ${CTManualEvent_PrimaryNarrative_Field}=     Execute Javascript    ${CTManualEvent_PrimaryNarrative}
+   Wait Until Element Is Visible    ${CTManualEvent_PrimaryNarrative_Field}
+   Input Text    ${CTManualEvent_PrimaryNarrative_Field}    ${CTPrimaryNarrative}
+   ${CTManualEvent_Creation_EventType}=  Execute Javascript    ${CTManualEvent_Creation_EventType_JS}
+   Click Element    ${CTManualEvent_Creation_EventType}
+   ${CTManualEvent_Creation_EventType_SearchField}=  Execute Javascript    ${CTManualEvent_Creation_EventType_SearchField_JS}
+   Wait Until Element Is Visible    ${CTManualEvent_Creation_EventType_SearchField}
+#   Input Text   ${CTManualEvent_Creation_EventType_SearchField}     ${CTSelectManualEventType}
+   ${CTManualEvent_Creation_EventType_WithNo_Select}=   Execute Javascript    ${CTManualEvent_Creation_EventType_WithNo_Select_JS}
+   Click Element    ${CTManualEvent_Creation_EventType_WithNo_Select}
+   ${CTManualEvent_Creation_Number_SearchField}=    Execute Javascript    ${CTManualEvent_Creation_Number_SearchField_JS}
+   Wait Until Element Is Visible   ${CTManualEvent_Creation_Number_SearchField}
+   Input Text    ${CTManualEvent_Creation_Number_SearchField}       ${CTManualEvent_Creation_Number}
+   ${CTManualEvent_Create}=  Execute Javascript    ${CTManualEvent_Create_JS}
+   Click Element    ${CTManualEvent_Create}
+   capture page screenshot     ${CURDIR}/Screenshots/Manual Event With Number.png
+
+CT Verify CallTaker Home Page And Title
+    Wait Until Element Is Visible       ${CT_Validate_HomePage}    7s
+    Title Should Be     ngcadapp
+    capture page screenshot     ${CURDIR}/Screenshots/Verify CallTaker Home Page And Title.png
+
+
+
+
+

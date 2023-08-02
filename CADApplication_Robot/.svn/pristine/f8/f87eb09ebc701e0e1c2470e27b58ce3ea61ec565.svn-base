@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on win32)" generated="20230721 19:11:53.694" rpa="false" schemaversion="3">
+<suite id="s1" name="CADApplication" source="C:\Users\TMPL-FA-1879\PycharmProjects\CadApplications\CADApplication">
+<suite id="s1-s1" name="Python Methods" source="C:\Users\TMPL-FA-1879\PycharmProjects\CadApplications\CADApplication\Python_Methods">
+<suite id="s1-s1-s1" name="ExcelDat read" source="C:\Users\TMPL-FA-1879\PycharmProjects\CadApplications\CADApplication\Python_Methods\ExcelDat_read">
+<suite id="s1-s1-s1-s1" name="Demo" source="C:\Users\TMPL-FA-1879\PycharmProjects\CadApplications\CADApplication\Python_Methods\ExcelDat_read\demo.robot">
+<test id="s1-s1-s1-s1-t1" name="Login With Multiple Users" line="8">
+<kw name="Set Variable" library="BuiltIn">
+<var>${file_path}</var>
+<arg>C://Automation/NGCAD - Automation Plan.xlsx</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230721 19:11:54.422" level="INFO">${file_path} = C://Automation/NGCAD - Automation Plan.xlsx</msg>
+<status status="PASS" starttime="20230721 19:11:54.422" endtime="20230721 19:11:54.422"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${sheet_name}</var>
+<arg>Credentials</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230721 19:11:54.423" level="INFO">${sheet_name} = Credentials</msg>
+<status status="PASS" starttime="20230721 19:11:54.423" endtime="20230721 19:11:54.423"/>
+</kw>
+<kw name="Read Excel Data" library="Excel_Sequential_Read">
+<var>${excel_data}</var>
+<arg>${file_path}</arg>
+<arg>${sheet_name}</arg>
+<msg timestamp="20230721 19:11:55.300" level="INFO">${excel_data} = []</msg>
+<status status="PASS" starttime="20230721 19:11:54.423" endtime="20230721 19:11:55.300"/>
+</kw>
+<for flavor="IN">
+<var>${row_data}</var>
+<value>@{excel_data}</value>
+<iter>
+<var name="${row_data}"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${username}</var>
+<arg>${row_data["Username"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.301" endtime="20230721 19:11:55.301"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${password}</var>
+<arg>${row_data["Password"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.301" endtime="20230721 19:11:55.301"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.301" endtime="20230721 19:11:55.301"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.301" endtime="20230721 19:11:55.301"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.301" endtime="20230721 19:11:55.301"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.301" endtime="20230721 19:11:55.301"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.301" endtime="20230721 19:11:55.301"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.301" endtime="20230721 19:11:55.301"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.302" endtime="20230721 19:11:55.302"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.302" endtime="20230721 19:11:55.302"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.302" endtime="20230721 19:11:55.302"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.302" endtime="20230721 19:11:55.302"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>C:\\Users\\TMPL-FA-1879\\PycharmProjects\\CadApplications\\CADApplication\\Python_Methods\\ExcelDat_read/Screenshots/CAD_${username}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.302" endtime="20230721 19:11:55.302"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.302" endtime="20230721 19:11:55.302"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.302" endtime="20230721 19:11:55.302"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.302" endtime="20230721 19:11:55.302"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.302" endtime="20230721 19:11:55.302"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20230721 19:11:55.303" endtime="20230721 19:11:55.303"/>
+</kw>
+<status status="NOT RUN" starttime="20230721 19:11:55.300" endtime="20230721 19:11:55.303"/>
+</iter>
+<status status="NOT RUN" starttime="20230721 19:11:55.300" endtime="20230721 19:11:55.303"/>
+</for>
+<status status="PASS" starttime="20230721 19:11:54.421" endtime="20230721 19:11:55.303"/>
+</test>
+<status status="PASS" starttime="20230721 19:11:53.720" endtime="20230721 19:11:55.304"/>
+</suite>
+<status status="PASS" starttime="20230721 19:11:53.719" endtime="20230721 19:11:55.306"/>
+</suite>
+<status status="PASS" starttime="20230721 19:11:53.717" endtime="20230721 19:11:55.308"/>
+</suite>
+<status status="PASS" starttime="20230721 19:11:53.695" endtime="20230721 19:11:55.309"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="CADApplication">CADApplication</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Python Methods">CADApplication.Python Methods</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="ExcelDat read">CADApplication.Python Methods.ExcelDat read</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Demo">CADApplication.Python Methods.ExcelDat read.Demo</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

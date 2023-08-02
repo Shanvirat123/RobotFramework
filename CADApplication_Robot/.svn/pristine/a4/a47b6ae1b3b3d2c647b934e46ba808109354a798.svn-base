@@ -1,0 +1,416 @@
+*** Settings ***
+Library     SeleniumLibrary
+Library  ../../VaultConfig/VaultUtils.py
+Variables           ../../Resources/WebElements.py
+Variables        ../../Resources/Testdata.py
+
+
+*** Variables ***
+${browser}  chrome
+${Timeout}       15s
+${Calltaker_Screenshot_Path}   C://Users/TMPL-FA-1879/PycharmProjects/CadApplications/CADApplication/Screenshots
+
+*** Keywords ***
+Login To Call taker Operartor
+    ${ngcad_url}    ${ngcad_username}    ${ngcad_password}=    get_ngcad_calltaker_details
+    Open Browser    ${ngcad_url}    chrome      options=add_argument("--ignore-certificate-errors")
+    Maximize Browser Window
+    Wait Until Page Contains Element    ${CAD_Dispatcher_Selection}         ${CAD_Dispatcher_Selection_Timeout}
+    Select From List By Label   ${CAD_Dispatcher_Selection}      ${CallTakerRoletype}
+    sleep   3
+    Select From List By Value   ${CAD_Dispatcher_Workstation}      ${Cad_Workstation}
+    Wait Until Page Contains Element    ${DisPUserNameField}         ${Timeout}
+    Input Text      ${UserNameField}        ${ngcad_username}
+    Wait Until Page Contains Element    ${UserPasswordField}         ${Timeout}
+    Input Text      ${UserPasswordField}         ${ngcad_password}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CAD.png
+    Wait Until Page Contains Element    ${CAD_Login}         ${Timeout}
+    Click Button    ${CAD_Login}
+    Wait Until Element Is Visible       ${CTCreateManualEvent}    ${Timeout}
+    Title Should Be     ngcadapp
+    capture page screenshot     ${Calltaker_Screenshot_Path}/Login_to_Dispatcher.png
+
+CT Create Manual Event With Number
+   Mouse Over   ${CT_CreateManualEvent}
+   Wait Until Element Is Visible    ${CT_CreateManualEvent}
+   Click Element     ${CT_CreateManualEvent}
+   ${CTManualEvent_PrimaryNarrative_Field}=     Execute Javascript    ${CTManualEvent_PrimaryNarrative}
+   Wait Until Element Is Visible    ${CTManualEvent_PrimaryNarrative_Field}
+   Input Text    ${CTManualEvent_PrimaryNarrative_Field}    ${CTPrimaryNarrative}
+   ${CTManualEvent_Creation_EventType}=  Execute Javascript    ${CTManualEvent_Creation_EventType_JS}
+   Click Element    ${CTManualEvent_Creation_EventType}
+   ${CTManualEvent_Creation_EventType_SearchField}=  Execute Javascript    ${CTManualEvent_Creation_EventType_SearchField_JS}
+   Wait Until Element Is Visible    ${CTManualEvent_Creation_EventType_SearchField}
+#   Input Text   ${CTManualEvent_Creation_EventType_SearchField}     ${CTSelectManualEventType}
+   ${CTManualEvent_Creation_EventType_WithNo_Select}=   Execute Javascript    ${CTManualEvent_Creation_EventType_WithNo_Select_JS}
+   Click Element    ${CTManualEvent_Creation_EventType_WithNo_Select}
+   ${CTManualEvent_Creation_Number_SearchField}=    Execute Javascript    ${CTManualEvent_Creation_Number_SearchField_JS}
+   Wait Until Element Is Visible   ${CTManualEvent_Creation_Number_SearchField}
+   Input Text    ${CTManualEvent_Creation_Number_SearchField}       ${CTManualEvent_Creation_Number}
+   ${CTManualEvent_Create}=  Execute Javascript    ${CTManualEvent_Create_JS}
+   Click Element    ${CTManualEvent_Create}
+   capture page screenshot     ${Calltaker_Screenshot_Path}/Manual Event With Number.png
+
+CT Verify CallTaker Home Page And Title
+    Wait Until Element Is Visible       ${CT_Validate_HomePage}    7s
+    Title Should Be     ngcadapp
+    capture page screenshot     ${Calltaker_Screenshot_Path}/Verify CallTaker Home Page And Title.png
+
+CT Create Manual Event Without Number
+   Mouse Over   ${CT_CreateManualEvent}
+   Wait Until Element Is Visible    ${CT_CreateManualEvent}
+   Click Element     ${CT_CreateManualEvent}
+   ${CTManualEvent_PrimaryNarrative_Field}=     Execute Javascript    ${CTManualEvent_PrimaryNarrative}
+   Wait Until Element Is Visible    ${CTManualEvent_PrimaryNarrative_Field}
+   Input Text    ${CTManualEvent_PrimaryNarrative_Field}    ${CTPrimaryNarrative}
+   ${CTManualEvent_Creation_EventType}=  Execute Javascript    ${CTManualEvent_Creation_EventType_JS}
+   Click Element    ${CTManualEvent_Creation_EventType}
+   ${CTManualEvent_Creation_EventType_SearchField}=  Execute Javascript    ${CTManualEvent_Creation_EventType_SearchField_JS}
+   Wait Until Element Is Visible    ${CTManualEvent_Creation_EventType_SearchField}
+   Input Text   ${CTManualEvent_Creation_EventType_SearchField}     ${CTSelectManualEventType}
+   ${CTManualEvent_Creation_EventType_WithoutNo_Select}=   Execute Javascript    ${CTManualEvent_Creation_EventType_WithoutNo_Select_JS}
+   Click Element    ${CTManualEvent_Creation_EventType_WithoutNo_Select}
+   ${CTManualEvent_Create}=  Execute Javascript    ${CTManualEvent_Create_JS}
+   Click Element    ${CTManualEvent_Create}
+   capture page screenshot     ${Calltaker_Screenshot_Path}/Manual Event Without Number.png
+
+Operator Lagout
+    ${Operator_Lagout}=     Execute Javascript    ${Operator_Lagout_JS}
+    Wait Until Element Is Visible    ${Operator_Lagout}      ${Timeout}
+    Click Element    ${Operator_Lagout}
+    ${Operator_Lagout_Yes}=  Execute Javascript    ${Operator_Lagout_Yes_JS}
+    Click Element    ${Operator_Lagout_Yes}
+
+
+TearDown Lagout
+    Reload Page
+    Handle Alert    action=ACCEPT      timeout=5s
+    Sleep    5s
+    ${Operator_Lagout}=     Execute Javascript    ${Operator_Lagout_JS}
+    ${Status}=  Run Keyword And Return Status       Element Should Be Visible    ${Operator_Lagout}
+    Run Keyword If    ${Status}    Operator Lagout
+
+CT Add Person Supplemental info
+    Wait Until Element Is Visible   ${CT_SUP}   ${Timeout}
+    Click Element    ${CT_SUP}
+    Click Element    ${CT_Supliment_Person_Suspect}
+    ${CT_Supliment_Person_Suspect_Select}=   Execute Javascript      ${CT_Supliment_Person_Suspect_Select_JS}
+    Click Element    ${CT_Supliment_Person_Suspect_Select}
+    ${CT_Supliment_Person_Race}=     Execute Javascript    ${CT_Supliment_Person_Race_JS}
+    Input Text    ${CT_Supliment_Person_Race}       ${CT_Supliment_Person_Race_Data}
+    Click Element    ${CT_Supliment_Person_Gender_Field}
+    ${CT_Supliment_Person_Gender}=   Execute Javascript    ${CT_Supliment_Person_Gender_Select}
+    Click Element   ${CT_Supliment_Person_Gender}
+    ${CT_Supliment_Person_Age_Field}=   Execute Javascript  ${CT_Supliment_Person_Age_JS}
+    Input Text    ${CT_Supliment_Person_Age_Field}      ${CT_Supliment_Person_Age}
+    ${CT_Supliment_Person_Clothing_Field}=   Execute Javascript  ${CT_Supliment_Person_Clothing_JS}
+    Input Text    ${CT_Supliment_Person_Clothing_Field}     ${CT_Supliment_Person_Clothing}
+    ${CT_Supliment_Person_Demeanor_Field}=   Execute Javascript  ${CT_Supliment_Person_Demeanor_JS}
+    Input Text    ${CT_Supliment_Person_Demeanor_Field}     ${CT_Supliment_Person_Demeanor}
+    ${CT_Supliment_Person_Name_Field}=   Execute Javascript  ${CT_Supliment_Person_Name_JS}
+    Input Text    ${CT_Supliment_Person_Name_Field}     ${CT_Supliment_Person_Name}
+    ${CT_Supliment_Person_Complexion_Field}=   Execute Javascript  ${CT_Supliment_Person_Complexion_JS}
+    Input Text    ${CT_Supliment_Person_Complexion_Field}   ${CT_Supliment_Person_Complexion_JS}
+    ${CT_Supliment_Person_Height_Field}=   Execute Javascript  ${CT_Supliment_Person_Height_JS}
+    Input Text    ${CT_Supliment_Person_Height_Field}   ${CT_Supliment_Person_Height}
+    ${CT_Supliment_Person_Weight_Field}=   Execute Javascript  ${CT_Supliment_Person_Weight_JS}
+    Input Text    ${CT_Supliment_Person_Weight_Field}   ${CT_Supliment_Person_Weight}
+    ${CT_Supliment_Person_Hair_Field}=   Execute Javascript  ${CT_Supliment_Person_Hair_JS}
+    Input Text    ${CT_Supliment_Person_Hair_Field}     ${CT_Supliment_Person_Hair}
+    ${CT_Supliment_Person_Eye_Field}=   Execute Javascript  ${CT_Supliment_Person_Eye_JS}
+    Input Text    ${CT_Supliment_Person_Eye_Field}     ${CT_Supliment_Person_Eye}
+    Click Element    ${CT_Supliment_Person_Relationship}
+    ${CT_Supliment_Person_Relationship_Select}=  Execute Javascript    ${CT_Supliment_Person_Relationship_Select_JS}
+    Click Element    ${CT_Supliment_Person_Relationship_Select}
+    ${CT_Supliment_Person_Contact_Field}=   Execute Javascript  ${CT_Supliment_Person_Contact_JS}
+    Input Text    ${CT_Supliment_Person_Contact_Field}     ${CT_Supliment_Person_Contact}
+    ${CT_Supliment_Person_Other_Field}=   Execute Javascript  ${CT_Supliment_Person_Other_JS}
+    Input Text    ${CT_Supliment_Person_Other_Field}     ${CT_Supliment_Person_Other}
+    ${CT_Supliment_Person_Address_Field}=   Execute Javascript  ${CT_Supliment_Person_Address_JS}
+    Input Text    ${CT_Supliment_Person_Address_Field}     ${CT_Supliment_Person_Address}
+    Click Element    ${CT_Supliment_Person_Add}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CT Add Person Supplemental info.png
+
+CT Add Vehicle Supplemental info
+    Wait Until Element Is Visible   ${CT_SUP}   ${Timeout}
+    Click Element    ${CT_SUP}
+    Click Element    ${CT_Supliment_Vehicle}
+    Click Element    ${CT_Supliment_Vehicle_Type}
+    ${CT_Supliment_Vehicle_Type_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Type_JS}
+    Click Element    ${CT_Supliment_Vehicle_Type_Field}
+    ${CT_Supliment_Vehicle_RegiPlate_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_RegiPlate_JS}
+    Input Text    ${CT_Supliment_Vehicle_RegiPlate_Field}   ${CT_Supliment_Vehicle_RegiPlate}
+    ${CT_Supliment_Vehicle_RegiPlateState_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_RegiPlateState_JS}
+    Input Text    ${CT_Supliment_Vehicle_RegiPlateState_Field}  ${CT_Supliment_Vehicle_RegiPlateState}
+    ${CT_Supliment_Vehicle_RegiPlateType_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_RegiPlateType_JS}
+    Input Text    ${CT_Supliment_Vehicle_RegiPlateType_Field}   ${CT_Supliment_Vehicle_RegiPlateType}
+    ${CT_Supliment_Vehicle_Color_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Color_JS}
+    Input Text    ${CT_Supliment_Vehicle_Color_Field}   ${CT_Supliment_Vehicle_Color}
+    ${CT_Supliment_Vehicle_Model_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Model_JS}
+    Input Text    ${CT_Supliment_Vehicle_Model_Field}   ${CT_Supliment_Vehicle_Model}
+    ${CT_Supliment_Vehicle_Make_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Make_JS}
+    Input Text    ${CT_Supliment_Vehicle_Make_Field}   ${CT_Supliment_Vehicle_Make}
+    ${CT_Supliment_Vehicle_Number_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Number_JS}
+    Input Text    ${CT_Supliment_Vehicle_Number_Field}   ${CT_Supliment_Vehicle_Number}
+    ${CT_Supliment_Vehicle_Remarks_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Remarks_JS}
+    Input Text    ${CT_Supliment_Vehicle_Remarks_Field}   ${CT_Supliment_Vehicle_Remarks}
+    Click Element    ${CT_Supliment_Vehicle_Add}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CT Add Vehicle Supplemental info.png
+
+CT Add Location Supplemental info
+    Wait Until Element Is Visible   ${CT_SUP}   ${Timeout}
+    Click Element    ${CT_SUP}
+    Click Element    ${CT_Supliment_Location}
+    Input Text    ${CT_Supliment_Location_Tag_Field}    ${CT_Supliment_Location_Tag}
+    ${CT_Supliment_Location_Caution_Field}=   Execute Javascript  ${CT_Supliment_Location_Caution_JS}
+    Input Text    ${CT_Supliment_Location_Caution_Field}    ${CT_Supliment_Location_Caution}
+    Click Element    ${CT_Supliment_Location_Add}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CT Add Location Supplemental info.png
+
+CT Add Other Supplemental info
+    Wait Until Element Is Visible   ${CT_SUP}   ${Timeout}
+    Click Element    ${CT_SUP}
+    Click Element    ${CT_Supliment_Other}
+    ${CT_Supliment_Other_NoOfInjuries_Field}=   Execute Javascript  ${CT_Supliment_Other_NoOfInjuries_JS}
+    Input Text    ${CT_Supliment_Other_NoOfInjuries_Field}    ${CT_Supliment_Other_NoOfInjuries}
+    ${CT_Supliment_Other_NoOfDeaths_Field}=   Execute Javascript  ${CT_Supliment_Other_NoOfDeaths_JS}
+    Input Text    ${CT_Supliment_Other_NoOfDeaths_Field}    ${CT_Supliment_Other_NoOfDeaths}
+    Click Element    ${CT_Supliment_Other_Add}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CT Add Other Supplemental info.png
+
+CT Change Call Type
+    Wait Until Element Is Visible       ${CT_Validate_HomePage}    ${Timeout}
+    Open Context Menu     ${CT_Eventevent}
+    Sleep    10s
+#    Wait Until Element Is Visible       ${CT_BlankCall}    ${Timeout}
+#    Mouse Over   ${CT_BlankCall}
+#    Click Element    ${CT_BlankCall}
+    Click Image         r'C:\CADApplication_Robot\File_Upload\CrankCall.png'
+
+
+
+CT Fill Distress Form for Police agency
+     Wait Until Element Is Visible  ${CT_PoliceButton}   ${Timeout}
+     Click Element    ${CT_PoliceButton}
+     Sleep    3s
+     ${CT_Address}=     Execute Javascript    ${CT_AddressField}
+     Wait Until Element Is Visible    ${CT_Address}         ${Timeout}
+     Input Text    ${CT_Address}    ${CT_Location}
+     Sleep    3s
+
+     ${CT_LandMark}=     Execute Javascript    ${CT_LandMark_Field}
+     Wait Until Element Is Visible    ${CT_LandMark}         ${Timeout}
+     Input Text    ${CT_LandMark}    ${CT_LandmarkK}
+
+     ${CT_Place}=     Execute Javascript    ${CT_Place_Filed}
+     Wait Until Element Is Visible    ${CT_Place}         ${Timeout}
+     Input Text    ${CT_Place}    ${CT_Location}
+
+     ${CT_Fname_Field}=     Execute Javascript    ${CT_firstName}
+     Wait Until Element Is Visible    ${CT_Fname_Field}         ${Timeout}
+     Input Text    ${CT_Fname_Field}    ${CT_fName}
+
+
+     ${CT_IncformGender_Field}=  Execute Javascript    ${CT_IncformGender}
+     Click Element    ${CT_IncformGender_Field}
+
+     ${CT_Gender}=     Execute Javascript    ${CT_GenderTextField}
+     Wait Until Element Is Visible    ${CT_Gender}         ${Timeout}
+     Input Text    ${CT_Gender}    ${CT_GenderSelection}
+
+
+     ${CT_Gender_DropDown_Click}=  Execute Javascript    ${CT_Gender_DropDown}
+     Click Element    ${CT_Gender_DropDown_Click}
+
+
+     ${CT_EVentform_Ph}=     Execute Javascript    ${CT_EVentform_Phnnumber}
+     Wait Until Element Is Visible    ${CT_EVentform_Ph}         ${Timeout}
+     Input Text    ${CT_EVentform_Ph}    ${CT_Phonenumber}
+
+     ${CT_SubeventTypeClick}=  Execute Javascript    ${CT_SubeventType}
+     Click Element    ${CT_SubeventTypeClick}
+
+     ${CT_SubeventsearchTypeField}=     Execute Javascript    ${CT_SubeventsearchType}
+     Wait Until Element Is Visible    ${CT_SubeventsearchTypeField}         ${Timeout}
+     Input Text    ${CT_SubeventsearchTypeField}    ${CT_SubEventTypeselection}
+     Sleep    2s
+
+     ${CT_SubeventTypeClickk}=  Execute Javascript    ${CT_SubeventTypeOption}
+      Click Element    ${CT_SubeventTypeClickk}
+
+      Wait Until Element Is Visible  ${CT_Notify_No}   ${Timeout}
+      Click Element    ${CT_Notify_No}
+      Sleep    3s
+
+      ${CT_Station_Filtericon}=  Execute Javascript    ${CT_Station_Filter}
+      Wait Until Element Is Visible  ${CT_Station_Filtericon}   ${Timeout}
+      Click Element    ${CT_Station_Filtericon}
+      Sleep    2s
+      Wait Until Element Is Visible  ${CT_Filter_PoliceStation}   ${Timeout}
+      Click Element    ${CT_Filter_PoliceStation}
+      Wait Until Element Is Visible  ${CT_SelectPoliceStation}   ${Timeout}
+      Click Element    ${CT_SelectPoliceStation}
+      Sleep     3s
+
+CT DispatchEvent
+
+      Wait Until Element Is Visible  ${CT_EventDispatch}   ${Timeout}
+      Click Element    ${CT_EventDispatch}
+      Wait Until Element Is Visible  ${CT_Dispatcher_Selection}   ${Timeout}
+      Click Element    ${CT_Dispatcher_Selection}
+
+      #${CT_SelectedDispatcher}=  Execute Javascript    ${CT_SelectedEventDispatch}
+      Wait Until Element Is Visible  ${CT_SelectedEventDispatch}   ${Timeout}
+      Click Element    ${CT_SelectedEventDispatch}
+      Sleep    2s
+      Wait Until Element Is Visible  ${CT_Dispatch_Confirm}   ${Timeout}
+      Click Element    ${CT_Dispatch_Confirm}
+      Sleep    5s
+
+CT Verify distress form filling for EMS agency
+     Wait Until Element Is Visible  ${CT_EMS}   ${Timeout}
+     Click Element    ${CT_EMS}
+     Sleep    3s
+     ${CT_Address}=     Execute Javascript    ${CT_AddressField}
+     Wait Until Element Is Visible    ${CT_Address}         ${Timeout}
+     Input Text    ${CT_Address}    ${CT_Location}
+     Sleep    3s
+     ${CT_LandMark}=     Execute Javascript    ${CT_LandMark_Field}
+     Wait Until Element Is Visible    ${CT_LandMark}         ${Timeout}
+     Input Text    ${CT_LandMark}    ${CT_LandmarkK}
+     ${CT_Place}=     Execute Javascript    ${CT_Place_Filed}
+     Wait Until Element Is Visible    ${CT_Place}         ${Timeout}
+     Input Text    ${CT_Place}    ${CT_Location}
+     ${CT_Fname_Field}=     Execute Javascript    ${CT_firstName}
+     Wait Until Element Is Visible    ${CT_Fname_Field}         ${Timeout}
+     Input Text    ${CT_Fname_Field}    ${CT_fName}
+     ${CT_IncformGender_Field}=  Execute Javascript    ${CT_IncformGender}
+     Click Element    ${CT_IncformGender_Field}
+     ${CT_Gender}=     Execute Javascript    ${CT_GenderTextField}
+     Wait Until Element Is Visible    ${CT_Gender}         ${Timeout}
+     Input Text    ${CT_Gender}    ${CT_GenderSelection}
+     ${CT_Gender_DropDown_Click}=  Execute Javascript    ${CT_Gender_DropDown}
+     Click Element    ${CT_Gender_DropDown_Click}
+     ${CT_EVentform_Ph}=     Execute Javascript    ${CT_EVentform_Phnnumber}
+     Wait Until Element Is Visible    ${CT_EVentform_Ph}         ${Timeout}
+     Input Text    ${CT_EVentform_Ph}    ${CT_Phonenumber}
+     ${CT_SubeventTypeClick}=  Execute Javascript    ${CT_SubeventType}
+     Click Element    ${CT_SubeventTypeClick}
+     ${CT_SubeventsearchTypeField}=     Execute Javascript    ${CT_SubeventsearchType}
+     Wait Until Element Is Visible    ${CT_SubeventsearchTypeField}         ${Timeout}
+     Input Text    ${CT_SubeventsearchTypeField}    ${CT_SubEventTypeselection}
+     Sleep    2s
+     ${CT_SubeventTypeClickk}=  Execute Javascript    ${CT_SubeventTypeOption}
+      Click Element    ${CT_SubeventTypeClickk}
+      Wait Until Element Is Visible  ${CT_Notify_No}   ${Timeout}
+      Click Element    ${CT_Notify_No}
+      Sleep   3s
+      Wait Until Element Is Visible  ${CT_EMS_Filter}   ${Timeout}
+      Click Element    ${CT_EMS_Filter}
+      Wait Until Element Is Visible  ${CT_Filter_Hospitals}   ${Timeout}
+      Click Element    ${CT_Filter_Hospitals}
+      Wait Until Element Is Visible  ${CT_Select_Hospital_Fire}   ${Timeout}
+      Click Element    ${CT_Select_Hospital_Fire}
+     ${CT_EnterPickUplocationField}=     Execute Javascript    ${CT_EnterPickUplocation}
+     Wait Until Element Is Visible    ${CT_EnterPickUplocationField}         ${Timeout}
+     Input Text    ${CT_EnterPickUplocationField}    ${CT_PicUplocation}
+     Sleep    2s
+     ${CT_EnterDropUplocationField}=     Execute Javascript    ${CT_EnterDropUplocation}
+     Wait Until Element Is Visible    ${CT_EnterDropUplocationField}         ${Timeout}
+     Input Text    ${CT_EnterDropUplocationField}    ${CT_DropLocation}
+     Sleep    2s
+      Scroll Element Into View   ${CT_TimeLapse}
+      Sleep    2s
+      ${CT_NatureEmergencyClick}=  Execute Javascript    ${CT_NatureEmergency}
+      Wait Until Element Is Visible    ${CT_NatureEmergencyClick}         ${Timeout}
+      Click Element    ${CT_NatureEmergencyClick}
+      ${CT_EnterNatureEmergencyField}=     Execute Javascript    ${CT_EnterNatureEmergency}
+      Wait Until Element Is Visible    ${CT_EnterNatureEmergencyField}         ${Timeout}
+      Input Text    ${CT_EnterNatureEmergencyField}    ${CT_Emergencyype}
+      Sleep    2s
+      ${CT_SelectionEmergencyOption_click}=  Execute Javascript    ${CT_SelectionEmergencyOption}
+      Wait Until Element Is Visible    ${CT_SelectionEmergencyOption_click}         ${Timeout}
+      Click Element    ${CT_SelectionEmergencyOption_click}
+      ${CT_HOS_serviceTypeClick}=  Execute Javascript    ${CT_HOS_serviceType}
+      Wait Until Element Is Visible    ${CT_HOS_serviceTypeClick}         ${Timeout}
+      Click Element    ${CT_HOS_serviceTypeClick}
+      ${CT_SelectHOS_servicetypeClick}=  Execute Javascript    ${CT_SelectHOS_servicetype}
+      Wait Until Element Is Visible    ${CT_SelectHOS_servicetypeClick}         ${Timeout}
+      Click Element    ${CT_SelectHOS_servicetypeClick}
+
+CT Verify distress form filling for Fire agency
+    Wait Until Element Is Visible  ${CT_Fire}   ${Timeout}
+    Click Element    ${CT_Fire}
+    Sleep    3s
+    ${CT_Address}=     Execute Javascript    ${CT_AddressField}
+    Wait Until Element Is Visible    ${CT_Address}         ${Timeout}
+    Input Text    ${CT_Address}    ${CT_Location}
+    Sleep    3s
+     ${CT_LandMark}=     Execute Javascript    ${CT_LandMark_Field}
+     Wait Until Element Is Visible    ${CT_LandMark}         ${Timeout}
+     Input Text    ${CT_LandMark}    ${CT_LandmarkK}
+     ${CT_Place}=     Execute Javascript    ${CT_Place_Filed}
+     Wait Until Element Is Visible    ${CT_Place}         ${Timeout}
+     Input Text    ${CT_Place}    ${CT_Location}
+     ${CT_Fname_Field}=     Execute Javascript    ${CT_firstName}
+     Wait Until Element Is Visible    ${CT_Fname_Field}         ${Timeout}
+     Input Text    ${CT_Fname_Field}    ${CT_fName}
+     ${CT_IncformGender_Field}=  Execute Javascript    ${CT_IncformGender}
+     Click Element    ${CT_IncformGender_Field}
+     ${CT_Gender}=     Execute Javascript    ${CT_GenderTextField}
+     Wait Until Element Is Visible    ${CT_Gender}         ${Timeout}
+     Input Text    ${CT_Gender}    ${CT_GenderSelection}
+     ${CT_Gender_DropDown_Click}=  Execute Javascript    ${CT_Gender_DropDown}
+     Click Element    ${CT_Gender_DropDown_Click}
+     ${CT_EVentform_Ph}=     Execute Javascript    ${CT_EVentform_Phnnumber}
+     Wait Until Element Is Visible    ${CT_EVentform_Ph}         ${Timeout}
+     Input Text    ${CT_EVentform_Ph}    ${CT_Phonenumber}
+     ${CT_SubeventTypeClick}=  Execute Javascript    ${CT_SubeventType}
+     Click Element    ${CT_SubeventTypeClick}
+     ${CT_SubeventsearchTypeField}=     Execute Javascript    ${CT_SubeventsearchType}
+     Wait Until Element Is Visible    ${CT_SubeventsearchTypeField}         ${Timeout}
+     Input Text    ${CT_SubeventsearchTypeField}    ${CT_SubEventTypeselection}
+     Sleep    2s
+     ${CT_SubeventTypeClickk}=  Execute Javascript    ${CT_SubeventTypeOption}
+     Click Element    ${CT_SubeventTypeClickk}
+      Wait Until Element Is Visible  ${CT_Notify_No}   ${Timeout}
+      Click Element    ${CT_Notify_No}
+      Sleep   3s
+      Wait Until Element Is Visible  ${CT_Fire_Filter}   ${Timeout}
+      Click Element    ${CT_Fire_Filter}
+      Wait Until Element Is Visible  ${CT_Filter_Fire_Stations}   ${Timeout}
+      Click Element    ${CT_Filter_Fire_Stations}
+      Wait Until Element Is Visible  ${CT_Select_Hospital_Fire}   ${Timeout}
+      Click Element    ${CT_Select_Hospital_Fire}
+      Scroll Element Into View   ${CT_TimeLapse}
+      Sleep    2s
+      ${CT_FireEmergencyClick}=  Execute Javascript    ${CT_FireEmergency}
+      Wait Until Element Is Visible    ${CT_FireEmergencyClick}         ${Timeout}
+      Click Element    ${CT_FireEmergencyClick}
+      ${CT_FireEnterEmergencyField}=     Execute Javascript    ${CT_FireEnterEmergency}
+      Wait Until Element Is Visible    ${CT_FireEnterEmergencyField}         ${Timeout}
+      Input Text    ${CT_FireEnterEmergencyField}    ${CT_Emergencyype}
+      Sleep    2s
+      ${CT_FireSelectionOption_click}=  Execute Javascript    ${CT_FireSelectionOption}
+      Wait Until Element Is Visible    ${CT_FireSelectionOption_click}         ${Timeout}
+      Click Element    ${CT_FireSelectionOption_click}
+      ${CT_FireEnterEmergencyField}=     Execute Javascript    ${CT_FireEnterEmergency}
+      Wait Until Element Is Visible    ${CT_EnterFireNarative}         ${Timeout}
+      Input Text    ${CT_EnterFireNarative}    ${CT_FireNarative}
+      Sleep    2s
+
+
+CT Update ANI info from the ANI/ALI section
+
+      Wait Until Element Is Visible    ${CT_Eventevent}         ${Timeout}
+      Click Element    ${CT_Eventevent}
+#      ${CT_AniEditt}=     Execute Javascript    ${CT_AniEdit}
+#      Wait Until Element Is Visible    ${CT_AniEditt}         ${Timeout}
+#      Wait Until Element Is Enabled    ${CT_AniEditt}         ${Timeout}
+      Sleep    5s
+      ${element}=    Execute Javascript    return document.querySelector("#ani-edit").shadowRoot.querySelector("span > button")
+      log       ${element}
+      Click Element    ${element}
+      #Execute JavaScript    document.querySelector("#ani-edit").shadowRoot.querySelector("span > button > img").click()
+
+      #Click Element    ${CT_AniEditt}

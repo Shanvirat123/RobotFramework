@@ -1,0 +1,179 @@
+*** Settings ***
+Library     SeleniumLibrary
+Library  ../../VaultConfig/VaultUtils.py
+Variables           ../../Resources/WebElements.py
+Variables        ../../Resources/Testdata.py
+
+
+*** Variables ***
+${browser}  chrome
+${Timeout}       15s
+${Calltaker_Screenshot_Path}   C://Users/TMPL-FA-1879/PycharmProjects/CadApplications/CADApplication/Screenshots
+
+*** Keywords ***
+Login To Call taker Operartor
+    ${ngcad_url}    ${ngcad_username}    ${ngcad_password}=    get_ngcad_calltaker_details
+    Open Browser    ${ngcad_url}    chrome      options=add_argument("--ignore-certificate-errors")
+    Maximize Browser Window
+    Wait Until Page Contains Element    ${CAD_Dispatcher_Selection}         ${CAD_Dispatcher_Selection_Timeout}
+    Select From List By Label   ${CAD_Dispatcher_Selection}      ${CallTakerRoletype}
+    sleep   3
+    Select From List By Value   ${CAD_Dispatcher_Workstation}      ${Cad_Workstation}
+    Wait Until Page Contains Element    ${DisPUserNameField}         ${Timeout}
+    Input Text      ${UserNameField}        ${ngcad_username}
+    Wait Until Page Contains Element    ${UserPasswordField}         ${Timeout}
+    Input Text      ${UserPasswordField}         ${ngcad_password}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CAD.png
+    Wait Until Page Contains Element    ${CAD_Login}         ${Timeout}
+    Click Button    ${CAD_Login}
+    Wait Until Element Is Visible       ${CTCreateManualEvent}    ${Timeout}
+    Title Should Be     ngcadapp
+    capture page screenshot     ${Calltaker_Screenshot_Path}/Login_to_Dispatcher.png
+
+CT Create Manual Event With Number
+   Mouse Over   ${CT_CreateManualEvent}
+   Wait Until Element Is Visible    ${CT_CreateManualEvent}
+   Click Element     ${CT_CreateManualEvent}
+   ${CTManualEvent_PrimaryNarrative_Field}=     Execute Javascript    ${CTManualEvent_PrimaryNarrative}
+   Wait Until Element Is Visible    ${CTManualEvent_PrimaryNarrative_Field}
+   Input Text    ${CTManualEvent_PrimaryNarrative_Field}    ${CTPrimaryNarrative}
+   ${CTManualEvent_Creation_EventType}=  Execute Javascript    ${CTManualEvent_Creation_EventType_JS}
+   Click Element    ${CTManualEvent_Creation_EventType}
+   ${CTManualEvent_Creation_EventType_SearchField}=  Execute Javascript    ${CTManualEvent_Creation_EventType_SearchField_JS}
+   Wait Until Element Is Visible    ${CTManualEvent_Creation_EventType_SearchField}
+#   Input Text   ${CTManualEvent_Creation_EventType_SearchField}     ${CTSelectManualEventType}
+   ${CTManualEvent_Creation_EventType_WithNo_Select}=   Execute Javascript    ${CTManualEvent_Creation_EventType_WithNo_Select_JS}
+   Click Element    ${CTManualEvent_Creation_EventType_WithNo_Select}
+   ${CTManualEvent_Creation_Number_SearchField}=    Execute Javascript    ${CTManualEvent_Creation_Number_SearchField_JS}
+   Wait Until Element Is Visible   ${CTManualEvent_Creation_Number_SearchField}
+   Input Text    ${CTManualEvent_Creation_Number_SearchField}       ${CTManualEvent_Creation_Number}
+   ${CTManualEvent_Create}=  Execute Javascript    ${CTManualEvent_Create_JS}
+   Click Element    ${CTManualEvent_Create}
+   capture page screenshot     ${Calltaker_Screenshot_Path}/Manual Event With Number.png
+
+CT Verify CallTaker Home Page And Title
+    Wait Until Element Is Visible       ${CT_Validate_HomePage}    7s
+    Title Should Be     ngcadapp
+    capture page screenshot     ${Calltaker_Screenshot_Path}/Verify CallTaker Home Page And Title.png
+
+CT Create Manual Event Without Number
+   Mouse Over   ${CT_CreateManualEvent}
+   Wait Until Element Is Visible    ${CT_CreateManualEvent}
+   Click Element     ${CT_CreateManualEvent}
+   ${CTManualEvent_PrimaryNarrative_Field}=     Execute Javascript    ${CTManualEvent_PrimaryNarrative}
+   Wait Until Element Is Visible    ${CTManualEvent_PrimaryNarrative_Field}
+   Input Text    ${CTManualEvent_PrimaryNarrative_Field}    ${CTPrimaryNarrative}
+   ${CTManualEvent_Creation_EventType}=  Execute Javascript    ${CTManualEvent_Creation_EventType_JS}
+   Click Element    ${CTManualEvent_Creation_EventType}
+   ${CTManualEvent_Creation_EventType_SearchField}=  Execute Javascript    ${CTManualEvent_Creation_EventType_SearchField_JS}
+   Wait Until Element Is Visible    ${CTManualEvent_Creation_EventType_SearchField}
+   Input Text   ${CTManualEvent_Creation_EventType_SearchField}     ${CTSelectManualEventType}
+   ${CTManualEvent_Creation_EventType_WithoutNo_Select}=   Execute Javascript    ${CTManualEvent_Creation_EventType_WithoutNo_Select_JS}
+   Click Element    ${CTManualEvent_Creation_EventType_WithoutNo_Select}
+   ${CTManualEvent_Create}=  Execute Javascript    ${CTManualEvent_Create_JS}
+   Click Element    ${CTManualEvent_Create}
+   capture page screenshot     ${Calltaker_Screenshot_Path}/Manual Event Without Number.png
+
+Operator Lagout
+    ${Operator_Lagout}=     Execute Javascript    ${Operator_Lagout_JS}
+    Wait Until Element Is Visible    ${Operator_Lagout}      ${Timeout}
+    Click Element    ${Operator_Lagout}
+    ${Operator_Lagout_Yes}=  Execute Javascript    ${Operator_Lagout_Yes_JS}
+    Click Element    ${Operator_Lagout_Yes}
+
+
+TearDown Lagout
+    Reload Page
+    Handle Alert    action=ACCEPT      timeout=5s
+    Sleep    5s
+    ${Operator_Lagout}=     Execute Javascript    ${Operator_Lagout_JS}
+    ${Status}=  Run Keyword And Return Status       Element Should Be Visible    ${Operator_Lagout}
+    Run Keyword If    ${Status}    Operator Lagout
+
+CT Add Person Supplemental info
+    Wait Until Element Is Visible   ${CT_SUP}   ${Timeout}
+    Click Element    ${CT_SUP}
+    Click Element    ${CT_Supliment_Person_Suspect}
+    ${CT_Supliment_Person_Suspect_Select}=   Execute Javascript      ${CT_Supliment_Person_Suspect_Select_JS}
+    Click Element    ${CT_Supliment_Person_Suspect_Select}
+    ${CT_Supliment_Person_Race}=     Execute Javascript    ${CT_Supliment_Person_Race_JS}
+    Input Text    ${CT_Supliment_Person_Race}       ${CT_Supliment_Person_Race_Data}
+    Click Element    ${CT_Supliment_Person_Gender_Field}
+    ${CT_Supliment_Person_Gender}=   Execute Javascript    ${CT_Supliment_Person_Gender_Select}
+    Click Element   ${CT_Supliment_Person_Gender}
+    ${CT_Supliment_Person_Age_Field}=   Execute Javascript  ${CT_Supliment_Person_Age_JS}
+    Input Text    ${CT_Supliment_Person_Age_Field}      ${CT_Supliment_Person_Age}
+    ${CT_Supliment_Person_Clothing_Field}=   Execute Javascript  ${CT_Supliment_Person_Clothing_JS}
+    Input Text    ${CT_Supliment_Person_Clothing_Field}     ${CT_Supliment_Person_Clothing}
+    ${CT_Supliment_Person_Demeanor_Field}=   Execute Javascript  ${CT_Supliment_Person_Demeanor_JS}
+    Input Text    ${CT_Supliment_Person_Demeanor_Field}     ${CT_Supliment_Person_Demeanor}
+    ${CT_Supliment_Person_Name_Field}=   Execute Javascript  ${CT_Supliment_Person_Name_JS}
+    Input Text    ${CT_Supliment_Person_Name_Field}     ${CT_Supliment_Person_Name}
+    ${CT_Supliment_Person_Complexion_Field}=   Execute Javascript  ${CT_Supliment_Person_Complexion_JS}
+    Input Text    ${CT_Supliment_Person_Complexion_Field}   ${CT_Supliment_Person_Complexion_JS}
+    ${CT_Supliment_Person_Height_Field}=   Execute Javascript  ${CT_Supliment_Person_Height_JS}
+    Input Text    ${CT_Supliment_Person_Height_Field}   ${CT_Supliment_Person_Height}
+    ${CT_Supliment_Person_Weight_Field}=   Execute Javascript  ${CT_Supliment_Person_Weight_JS}
+    Input Text    ${CT_Supliment_Person_Weight_Field}   ${CT_Supliment_Person_Weight}
+    ${CT_Supliment_Person_Hair_Field}=   Execute Javascript  ${CT_Supliment_Person_Hair_JS}
+    Input Text    ${CT_Supliment_Person_Hair_Field}     ${CT_Supliment_Person_Hair}
+    ${CT_Supliment_Person_Eye_Field}=   Execute Javascript  ${CT_Supliment_Person_Eye_JS}
+    Input Text    ${CT_Supliment_Person_Eye_Field}     ${CT_Supliment_Person_Eye}
+    Click Element    ${CT_Supliment_Person_Relationship}
+    ${CT_Supliment_Person_Relationship_Select}=  Execute Javascript    ${CT_Supliment_Person_Relationship_Select_JS}
+    Click Element    ${CT_Supliment_Person_Relationship_Select}
+    ${CT_Supliment_Person_Contact_Field}=   Execute Javascript  ${CT_Supliment_Person_Contact_JS}
+    Input Text    ${CT_Supliment_Person_Contact_Field}     ${CT_Supliment_Person_Contact}
+    ${CT_Supliment_Person_Other_Field}=   Execute Javascript  ${CT_Supliment_Person_Other_JS}
+    Input Text    ${CT_Supliment_Person_Other_Field}     ${CT_Supliment_Person_Other}
+    ${CT_Supliment_Person_Address_Field}=   Execute Javascript  ${CT_Supliment_Person_Address_JS}
+    Input Text    ${CT_Supliment_Person_Address_Field}     ${CT_Supliment_Person_Address}
+    Click Element    ${CT_Supliment_Person_Add}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CT Add Person Supplemental info.png
+
+CT Add Vehicle Supplemental info
+    Wait Until Element Is Visible   ${CT_SUP}   ${Timeout}
+    Click Element    ${CT_SUP}
+    Click Element    ${CT_Supliment_Vehicle}
+    Click Element    ${CT_Supliment_Vehicle_Type}
+    ${CT_Supliment_Vehicle_Type_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Type_JS}
+    Click Element    ${CT_Supliment_Vehicle_Type_Field}
+    ${CT_Supliment_Vehicle_RegiPlate_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_RegiPlate_JS}
+    Input Text    ${CT_Supliment_Vehicle_RegiPlate_Field}   ${CT_Supliment_Vehicle_RegiPlate}
+    ${CT_Supliment_Vehicle_RegiPlateState_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_RegiPlateState_JS}
+    Input Text    ${CT_Supliment_Vehicle_RegiPlateState_Field}  ${CT_Supliment_Vehicle_RegiPlateState}
+    ${CT_Supliment_Vehicle_RegiPlateType_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_RegiPlateType_JS}
+    Input Text    ${CT_Supliment_Vehicle_RegiPlateType_Field}   ${CT_Supliment_Vehicle_RegiPlateType}
+    ${CT_Supliment_Vehicle_Color_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Color_JS}
+    Input Text    ${CT_Supliment_Vehicle_Color_Field}   ${CT_Supliment_Vehicle_Color}
+    ${CT_Supliment_Vehicle_Model_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Model_JS}
+    Input Text    ${CT_Supliment_Vehicle_Model_Field}   ${CT_Supliment_Vehicle_Model}
+    ${CT_Supliment_Vehicle_Make_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Make_JS}
+    Input Text    ${CT_Supliment_Vehicle_Make_Field}   ${CT_Supliment_Vehicle_Make}
+    ${CT_Supliment_Vehicle_Number_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Number_JS}
+    Input Text    ${CT_Supliment_Vehicle_Number_Field}   ${CT_Supliment_Vehicle_Number}
+    ${CT_Supliment_Vehicle_Remarks_Field}=   Execute Javascript  ${CT_Supliment_Vehicle_Remarks_JS}
+    Input Text    ${CT_Supliment_Vehicle_Remarks_Field}   ${CT_Supliment_Vehicle_Remarks}
+    Click Element    ${CT_Supliment_Vehicle_Add}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CT Add Vehicle Supplemental info.png
+
+CT Add Location Supplemental info
+    Wait Until Element Is Visible   ${CT_SUP}   ${Timeout}
+    Click Element    ${CT_SUP}
+    Click Element    ${CT_Supliment_Location}
+    Input Text    ${CT_Supliment_Location_Tag_Field}    ${CT_Supliment_Location_Tag}
+    ${CT_Supliment_Location_Caution_Field}=   Execute Javascript  ${CT_Supliment_Location_Caution_JS}
+    Input Text    ${CT_Supliment_Location_Caution_Field}    ${CT_Supliment_Location_Caution}
+    Click Element    ${CT_Supliment_Location_Add}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CT Add Location Supplemental info.png
+
+CT Add Other Supplemental info
+    Wait Until Element Is Visible   ${CT_SUP}   ${Timeout}
+    Click Element    ${CT_SUP}
+    Click Element    ${CT_Supliment_Other}
+    ${CT_Supliment_Other_NoOfInjuries_Field}=   Execute Javascript  ${CT_Supliment_Other_NoOfInjuries_JS}
+    Input Text    ${CT_Supliment_Other_NoOfInjuries_Field}    ${CT_Supliment_Other_NoOfInjuries}
+    ${CT_Supliment_Other_NoOfDeaths_Field}=   Execute Javascript  ${CT_Supliment_Other_NoOfDeaths_JS}
+    Input Text    ${CT_Supliment_Other_NoOfDeaths_Field}    ${CT_Supliment_Other_NoOfDeaths}
+    Click Element    ${CT_Supliment_Other_Add}
+    capture page screenshot     ${Calltaker_Screenshot_Path}/CT Add Other Supplemental info.png
