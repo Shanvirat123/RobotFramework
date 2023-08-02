@@ -1,0 +1,9 @@
+*** Settings ***
+Resource    ../../../Keywords/CallTaker/CallTaker_Home_Page.robot
+
+*** Test Cases ***
+Test Case 1 : Verify manual event creation with number
+        [Tags]    AS-4201
+        Given Login To Call taker Operartor
+        When CT Verify CallTaker Home Page And Title
+        When CT Create Manual Event With Number

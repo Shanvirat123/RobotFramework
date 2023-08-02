@@ -1,0 +1,15 @@
+*** Settings ***
+
+Resource    ../../../Keywords/CallTaker/CallTaker_Home_Page.robot
+Resource      ../../../Keywords/CallTaker/CT_HomePageSikuli.robot
+
+*** Test Cases ***
+Testcase one: Verfiy calltype change to Blank call
+          [Tags]    AS-4182
+         Given Login To Call taker Operartor
+         When CT Verify CallTaker Home Page And Title
+         Then CT Create Manual Event With Number
+         And CT Change Call Type
+
+
+

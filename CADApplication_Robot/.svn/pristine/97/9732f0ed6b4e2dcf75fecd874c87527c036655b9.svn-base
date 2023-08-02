@@ -1,0 +1,9 @@
+{
+  "CTManualEvent_PrimaryNarrative" : "return document.querySelector(\"#primary-narrative\").shadowRoot.querySelector(\"textarea\")",
+  "CTManualEvent_Creation_EventType" : "return document.querySelector(\"body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div > div.row.mt-1 > div.col-10 > t-dropdown\").shadowRoot.querySelector(\"div > div.select\")",
+  "CTManualEvent_Creation_EventType_SearchField": "return document.querySelector(\"body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div > div.row.mt-1 > div.col-10 > t-dropdown\").shadowRoot.querySelector(\"div > div.menu.menu-open > input\")",
+  "CTManualEvent_Creation_EventTypeWithNo_Select" : "return document.querySelector(\"body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div > div.row.mt-1 > div.col-10 > t-dropdown\").shadowRoot.querySelector(\"div > div.menu.menu-open > input\")",
+  "CTManualEvent_Create" : "return document.querySelector(\"body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-footer > t-dialog-footer > div > t-button:nth-child(1)\").shadowRoot.querySelector(\"button > label\")"
+
+
+}

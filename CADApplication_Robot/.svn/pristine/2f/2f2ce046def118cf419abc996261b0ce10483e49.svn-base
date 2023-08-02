@@ -1,0 +1,82 @@
+import requests
+
+# Vault URL and Token
+vault_url = "http://192.168.1.87:8200/v1/secret/Automation_Configuration/projects/NGCAD/BatchExecution"
+vault_token = "7335292d-02fd-7fb9-e6bd-e8937c527ec0"
+
+# Function to fetch data from Vault and return it as JSON
+def fetch_data_from_vault():
+    headers = {"X-Vault-Token": vault_token}
+    response = requests.get(vault_url, headers=headers)
+    data = response.json()
+    return data
+
+# Function to get URL, username, and password from the fetched data
+def get_ngcad_details():
+    data = fetch_data_from_vault()
+    ngcad_details = data["data"]["NgCad details"]
+    ngcad_url = ngcad_details["NgCadAdmin"]
+    ngcad_username = ngcad_details["NgCadadminUsername"]
+    ngcad_password = ngcad_details["NgCadadminPassword"]
+    return ngcad_url, ngcad_username, ngcad_password
+
+def get_ngcad_calltaker_details():
+    data = fetch_data_from_vault()
+    ngcad_calltaker_details = data["data"]["NgcadCalltaker details"]
+    ngcad_calltaker_url = ngcad_calltaker_details["NgCADCallTaker"]
+    ngcad_calltaker_username = ngcad_calltaker_details["NgcadCalltakerUsername"]
+    ngcad_calltaker_password = ngcad_calltaker_details["NgcadCalltakerPassword"]
+    return ngcad_calltaker_url, ngcad_calltaker_username, ngcad_calltaker_password
+
+def get_ngcad_dispatcher_user_first_details():
+    data = fetch_data_from_vault()
+    ngcad_dispatcher_user_first_details = data["data"]["NgcadDispatcherUserFirst details"]
+    ngcad_dispatcher_user_first_url = ngcad_dispatcher_user_first_details["NgcadDispatcher"]
+    ngcad_dispatcher_user_first_username = ngcad_dispatcher_user_first_details["NgcadDispatcherUsername"]
+    ngcad_dispatcher_user_first_password = ngcad_dispatcher_user_first_details["NgcadDispatcherPassword"]
+    return ngcad_dispatcher_user_first_url, ngcad_dispatcher_user_first_username, ngcad_dispatcher_user_first_password
+
+def get_ngcad_dispatcher_user_second_details():
+    data = fetch_data_from_vault()
+    ngcad_dispatcher_user_second_details = data["data"]["NgcadDispatcherUserSecond details"]
+    ngcad_dispatcher_user_second_url = ngcad_dispatcher_user_second_details["NgcadDispatcherUserSecondUrl"]
+    ngcad_dispatcher_user_second_username = ngcad_dispatcher_user_second_details["NgcadDispatcherSecondUsername"]
+    ngcad_dispatcher_user_second_password = ngcad_dispatcher_user_second_details["NgcadDispatcherSecondPassword"]
+    return ngcad_dispatcher_user_second_url, ngcad_dispatcher_user_second_username, ngcad_dispatcher_user_second_password
+
+def get_ngcad_feedback_details():
+    data = fetch_data_from_vault()
+    ngcad_feedback_details = data["data"]["NgcadFeedback details"]
+    ngcad_feedback_url = ngcad_feedback_details["NgcadFeedbackUrl"]
+    ngcad_feedback_username = ngcad_feedback_details["NgcadFeedbackUsername"]
+    ngcad_feedback_password = ngcad_feedback_details["NgcadFeedbackPassword"]
+    return ngcad_feedback_url, ngcad_feedback_username, ngcad_feedback_password
+
+def get_ngcad_fleet_details():
+    data = fetch_data_from_vault()
+    ngcad_fleet_details = data["data"]["NgcadFleetdetails"]
+    ngcad_fleet_url = ngcad_fleet_details["NgCADFleet"]
+    ngcad_fleet_username = ngcad_fleet_details["NgcadFleetUsername"]
+    ngcad_fleet_password = ngcad_fleet_details["NgcadFleetPassword"]
+    return ngcad_fleet_url, ngcad_fleet_username, ngcad_fleet_password
+
+def get_ngcad_supervisor_details():
+    data = fetch_data_from_vault()
+    ngcad_supervisor_details = data["data"]["NgcadSupervisor details"]
+    ngcad_supervisor_url = ngcad_supervisor_details["NgCADSupervisor"]
+    ngcad_supervisor_username = ngcad_supervisor_details["NgcadSupervisorUsername"]
+    ngcad_supervisor_password = ngcad_supervisor_details["NgcadSupervisorPassword"]
+    return ngcad_supervisor_url, ngcad_supervisor_username, ngcad_supervisor_password
+
+# Example usage
+ngcad_url, ngcad_username, ngcad_password = get_ngcad_details()
+print("NgCad URL:", ngcad_url)
+print("NgCad Username:", ngcad_username)
+print("NgCad Password:", ngcad_password)
+
+ngcad_calltaker_url, ngcad_calltaker_username, ngcad_calltaker_password = get_ngcad_calltaker_details()
+print("NgCad CallTaker URL:", ngcad_calltaker_url)
+print("NgCad CallTaker Username:", ngcad_calltaker_username)
+print("NgCad CallTaker Password:", ngcad_calltaker_password)
+
+# Similarly, you can use other functions to get other details from the fetched data.

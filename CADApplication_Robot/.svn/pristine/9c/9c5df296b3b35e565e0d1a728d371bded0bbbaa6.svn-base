@@ -1,0 +1,40 @@
+*** Settings ***
+Library     SeleniumLibrary
+Library  ../../VaultConfig/VaultUtils.py
+Variables           ../../Resources/WebElements.py
+Variables        ../../Resources/Testdata.py
+
+
+*** Variables ***
+${browser}  chrome
+${Timeout}       20s
+
+*** Keywords ***
+Login To Call taker Operartor
+    ${ngcad_url}    ${ngcad_username}    ${ngcad_password}=    get_ngcad_calltaker_details
+    Open Browser    ${ngcad_url}    chrome      options=add_argument("--ignore-certificate-errors")
+    Maximize Browser Window
+    Wait Until Page Contains Element    ${CAD_Dispatcher_Selection}         ${CAD_Dispatcher_Selection_Timeout}
+    Select From List By Label   ${CAD_Dispatcher_Selection}      ${CallTakerRoletype}
+    Wait Until Page Contains Element    ${CAD_Dispatcher_Selection}         ${Timeout}
+    Select From List By Value   ${CAD_Dispatcher_Workstation}      ${Cad_Workstation}
+    Wait Until Page Contains Element    ${DisPUserNameField}         ${Timeout}
+    Input Text      ${DisPUserNameField}         ${DispatcherUName}
+    Wait Until Page Contains Element    ${UserPasswordField}         ${Timeout}
+    Input Text      ${UserPasswordField}         ${DispatcherUPassword}
+    capture page screenshot     ${CURDIR}/Screenshots/CAD.png
+    Wait Until Page Contains Element    ${CAD_Login}         ${Timeout}
+    Click Button    ${CAD_Login}
+    Wait Until Element Is Visible       ${CTCreateManualEvent}    ${Timeout}
+    Title Should Be     Trinity Respond
+    capture page screenshot     ${CURDIR}/Screenshots/Login_to_Dispatcher.png
+
+CT Create Manual Event With Number
+
+   ${CT_CreateManualEvent}=   Execute Javascript    ${CT_SideBar}
+   Mouse Over   ${CT_CreateManualEvent}
+
+
+
+
+

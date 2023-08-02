@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.2 on win32)" generated="20230721 12:26:28.420" rpa="false" schemaversion="3">
+<suite id="s1" name="TCADAR2-604" source="C:\Users\TMPL-FA-1879\PycharmProjects\CadApplications\CADApplication\TestCases\HappyFlow\CallTaker\TCADAR2-604.robot">
+<test id="s1-t1" name="Test Case 1 : Verify manual event creation with number" line="5">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230721 12:26:29.011" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230721 12:26:29.011" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230721 12:26:29.011" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230721 12:26:28.999" endtime="20230721 12:26:29.011"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230721 12:26:29.012" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<status status="PASS" starttime="20230721 12:26:29.011" endtime="20230721 12:26:32.036"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230721 12:26:32.036" endtime="20230721 12:26:32.213"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230721 12:26:32.213" endtime="20230721 12:26:32.261"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230721 12:26:32.264" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230721 12:26:32.261" endtime="20230721 12:26:32.388"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230721 12:26:35.389" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230721 12:26:32.389" endtime="20230721 12:26:35.389"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230721 12:26:35.390" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 100.</msg>
+<status status="PASS" starttime="20230721 12:26:35.389" endtime="20230721 12:26:35.483"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230721 12:26:35.483" endtime="20230721 12:26:35.499"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${ngcad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230721 12:26:35.500" level="INFO">Typing text 'ABHICT' into text field '//input[contains(@placeholder,'Username')]'.</msg>
+<status status="PASS" starttime="20230721 12:26:35.500" endtime="20230721 12:26:35.636"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230721 12:26:35.636" endtime="20230721 12:26:35.652"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${ngcad_password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230721 12:26:35.653" level="INFO">Typing text '123456' into text field '//input[contains(@placeholder,'Password')]'.</msg>
+<status status="PASS" starttime="20230721 12:26:35.652" endtime="20230721 12:26:35.754"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>C:\\Users\\TMPL-FA-1879\\PycharmProjects\\CadApplications\\CADApplication\\Keywords\\CallTaker/Screenshots/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230721 12:26:36.233" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Keywords/CallTaker/Screenshots/CAD.png"&gt;&lt;img src="../Keywords/CallTaker/Screenshots/CAD.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:35.754" endtime="20230721 12:26:36.233"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230721 12:26:36.234" endtime="20230721 12:26:36.248"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230721 12:26:36.248" level="INFO">Clicking button '//button[contains(.,'LOG IN')]'.</msg>
+<status status="PASS" starttime="20230721 12:26:36.248" endtime="20230721 12:26:36.351"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230721 12:26:36.351" endtime="20230721 12:26:38.227"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230721 12:26:38.239" level="INFO">Page title is 'ngcadapp'.</msg>
+<status status="PASS" starttime="20230721 12:26:38.228" endtime="20230721 12:26:38.239"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>C:\\Users\\TMPL-FA-1879\\PycharmProjects\\CadApplications\\CADApplication\\Keywords\\CallTaker/Screenshots/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230721 12:26:38.377" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Keywords/CallTaker/Screenshots/Login_to_Dispatcher.png"&gt;&lt;img src="../Keywords/CallTaker/Screenshots/Login_to_Dispatcher.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:38.239" endtime="20230721 12:26:38.377"/>
+</kw>
+<status status="PASS" starttime="20230721 12:26:28.999" endtime="20230721 12:26:38.377"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CT_Validate_HomePage}</arg>
+<arg>7s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230721 12:26:38.378" endtime="20230721 12:26:38.419"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230721 12:26:38.425" level="INFO">Page title is 'ngcadapp'.</msg>
+<status status="PASS" starttime="20230721 12:26:38.420" endtime="20230721 12:26:38.425"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>C:\\Users\\TMPL-FA-1879\\PycharmProjects\\CadApplications\\CADApplication\\Keywords\\CallTaker/Screenshots/Verify CallTaker Home Page And Title.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230721 12:26:38.557" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Keywords/CallTaker/Screenshots/Verify%20CallTaker%20Home%20Page%20And%20Title.png"&gt;&lt;img src="../Keywords/CallTaker/Screenshots/Verify%20CallTaker%20Home%20Page%20And%20Title.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:38.425" endtime="20230721 12:26:38.557"/>
+</kw>
+<status status="PASS" starttime="20230721 12:26:38.378" endtime="20230721 12:26:38.557"/>
+</kw>
+<kw name="Then CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${CT_CreateManualEvent}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20230721 12:26:38.559" level="INFO">Simulating Mouse Over on element '//img[@src='assets/images/side-panel/manualEvent.png']'.</msg>
+<status status="PASS" starttime="20230721 12:26:38.558" endtime="20230721 12:26:38.864"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CT_CreateManualEvent}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230721 12:26:38.864" endtime="20230721 12:26:38.889"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CT_CreateManualEvent}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230721 12:26:38.890" level="INFO">Clicking element '//img[@src='assets/images/side-panel/manualEvent.png']'.</msg>
+<status status="PASS" starttime="20230721 12:26:38.889" endtime="20230721 12:26:39.016"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${CTManualEvent_PrimaryNarrative_Field}</var>
+<arg>${CTManualEvent_PrimaryNarrative}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230721 12:26:39.017" level="INFO">Executing JavaScript:
+return document.querySelector("#primary-narrative").shadowRoot.querySelector("textarea")
+Without any arguments.</msg>
+<msg timestamp="20230721 12:26:39.031" level="INFO">${CTManualEvent_PrimaryNarrative_Field} = &lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_115")&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:39.016" endtime="20230721 12:26:39.031"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTManualEvent_PrimaryNarrative_Field}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230721 12:26:39.031" endtime="20230721 12:26:39.051"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CTManualEvent_PrimaryNarrative_Field}</arg>
+<arg>${CTPrimaryNarrative}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230721 12:26:39.052" level="INFO">Typing text 'Automation' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_115")&gt;'.</msg>
+<status status="PASS" starttime="20230721 12:26:39.051" endtime="20230721 12:26:39.235"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${CTManualEvent_Creation_EventType}</var>
+<arg>${CTManualEvent_Creation_EventType_JS}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230721 12:26:39.236" level="INFO">Executing JavaScript:
+return document.querySelector("body &gt; ngb-modal-window &gt; div &gt; div &gt; app-manul-event-window &gt; t-dialog-custom &gt; div &gt; div.t-dialog-content &gt; t-dialog-content &gt; div &gt; div.row.mt-1 &gt; div.col-10 &gt; t-dropdown").shadowRoot.querySelector("div &gt; div.select")
+Without any arguments.</msg>
+<msg timestamp="20230721 12:26:39.243" level="INFO">${CTManualEvent_Creation_EventType} = &lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_119")&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:39.235" endtime="20230721 12:26:39.243"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CTManualEvent_Creation_EventType}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230721 12:26:39.244" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_119")&gt;'.</msg>
+<status status="PASS" starttime="20230721 12:26:39.243" endtime="20230721 12:26:39.332"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${CTManualEvent_Creation_EventType_SearchField}</var>
+<arg>${CTManualEvent_Creation_EventType_SearchField_JS}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230721 12:26:39.333" level="INFO">Executing JavaScript:
+return document.querySelector("body &gt; ngb-modal-window &gt; div &gt; div &gt; app-manul-event-window &gt; t-dialog-custom &gt; div &gt; div.t-dialog-content &gt; t-dialog-content &gt; div &gt; div.row.mt-1 &gt; div.col-10 &gt; t-dropdown").shadowRoot.querySelector("div &gt; div.menu.menu-open &gt; input")
+Without any arguments.</msg>
+<msg timestamp="20230721 12:26:39.341" level="INFO">${CTManualEvent_Creation_EventType_SearchField} = &lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_120")&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:39.332" endtime="20230721 12:26:39.341"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTManualEvent_Creation_EventType_SearchField}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230721 12:26:39.341" endtime="20230721 12:26:39.357"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${CTManualEvent_Creation_EventType_WithNo_Select}</var>
+<arg>${CTManualEvent_Creation_EventType_WithNo_Select_JS}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230721 12:26:39.357" level="INFO">Executing JavaScript:
+return document.querySelector("body &gt; ngb-modal-window &gt; div &gt; div &gt; app-manul-event-window &gt; t-dialog-custom &gt; div &gt; div.t-dialog-content &gt; t-dialog-content &gt; div &gt; div.row.mt-1 &gt; div.col-10 &gt; t-dropdown").shadowRoot.querySelector("div &gt; div.menu.menu-open &gt; ul &gt; li:nth-child(2)")
+Without any arguments.</msg>
+<msg timestamp="20230721 12:26:39.369" level="INFO">${CTManualEvent_Creation_EventType_WithNo_Select} = &lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_121")&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:39.357" endtime="20230721 12:26:39.369"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CTManualEvent_Creation_EventType_WithNo_Select}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230721 12:26:39.369" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_121")&gt;'.</msg>
+<status status="PASS" starttime="20230721 12:26:39.369" endtime="20230721 12:26:39.452"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${CTManualEvent_Creation_Number_SearchField}</var>
+<arg>${CTManualEvent_Creation_Number_SearchField_JS}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230721 12:26:39.454" level="INFO">Executing JavaScript:
+return document.querySelector("body &gt; ngb-modal-window &gt; div &gt; div &gt; app-manul-event-window &gt; t-dialog-custom &gt; div &gt; div.t-dialog-content &gt; t-dialog-content &gt; div &gt; div.row.mt-1.ng-star-inserted &gt; div.col-md-10 &gt; t-input").shadowRoot.querySelector("div &gt; input")
+Without any arguments.</msg>
+<msg timestamp="20230721 12:26:39.465" level="INFO">${CTManualEvent_Creation_Number_SearchField} = &lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_126")&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:39.452" endtime="20230721 12:26:39.466"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTManualEvent_Creation_Number_SearchField}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230721 12:26:39.466" endtime="20230721 12:26:39.480"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CTManualEvent_Creation_Number_SearchField}</arg>
+<arg>${CTManualEvent_Creation_Number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230721 12:26:39.481" level="INFO">Typing text '6363888131' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_126")&gt;'.</msg>
+<status status="PASS" starttime="20230721 12:26:39.481" endtime="20230721 12:26:39.637"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${CTManualEvent_Create}</var>
+<arg>${CTManualEvent_Create_JS}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230721 12:26:39.637" level="INFO">Executing JavaScript:
+return document.querySelector("body &gt; ngb-modal-window &gt; div &gt; div &gt; app-manul-event-window &gt; t-dialog-custom &gt; div &gt; div.t-dialog-footer &gt; t-dialog-footer &gt; div &gt; t-button:nth-child(1)").shadowRoot.querySelector("button &gt; label")
+Without any arguments.</msg>
+<msg timestamp="20230721 12:26:39.648" level="INFO">${CTManualEvent_Create} = &lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_129")&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:39.637" endtime="20230721 12:26:39.648"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CTManualEvent_Create}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230721 12:26:39.649" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="9eabe8a82312a394e4eb0e072875e12d", element="4B7DA698F7826E4212CEDA23FFAAB49D_element_129")&gt;'.</msg>
+<status status="PASS" starttime="20230721 12:26:39.648" endtime="20230721 12:26:39.721"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>C:\\Users\\TMPL-FA-1879\\PycharmProjects\\CadApplications\\CADApplication\\Keywords\\CallTaker/Screenshots/Manual Event With Number.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230721 12:26:40.175" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Keywords/CallTaker/Screenshots/Manual%20Event%20With%20Number.png"&gt;&lt;img src="../Keywords/CallTaker/Screenshots/Manual%20Event%20With%20Number.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230721 12:26:39.722" endtime="20230721 12:26:40.176"/>
+</kw>
+<status status="PASS" starttime="20230721 12:26:38.558" endtime="20230721 12:26:40.176"/>
+</kw>
+<tag>AS-4182</tag>
+<status status="PASS" starttime="20230721 12:26:28.997" endtime="20230721 12:26:40.177"/>
+</test>
+<status status="PASS" starttime="20230721 12:26:28.421" endtime="20230721 12:26:40.179"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">AS-4182</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TCADAR2-604">TCADAR2-604</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,2190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230801 16:04:10.417" rpa="false" schemaversion="3">
+<suite id="s1" name="DispatcheventDispatcher &amp; Questionnaires &amp; Related &amp; SOP &amp; TCADAR2-1443 &amp; TCADAR2-1444 &amp; TCADAR2-1445 &amp; TCADAR2-604 &amp; TCADAR2-612 &amp; Verifytheuserisabletoviewthenotifications">
+<suite id="s1-s1" name="DispatcheventDispatcher" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker\DispatcheventDispatcher.robot">
+<test id="s1-s1-t1" name="Testcase_One: Verify incident Dispatch to Dispatcher" line="6">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:04:10.765" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:04:10.764" endtime="20230801 16:04:10.765"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:04:10.793" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:04:10.793" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:04:10.794" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:04:10.765" endtime="20230801 16:04:10.794"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:04:10.795" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:04:10.814" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:04:10.794" endtime="20230801 16:04:12.908"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:04:12.908" endtime="20230801 16:04:13.110"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:04:13.111" endtime="20230801 16:04:13.147"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:04:13.149" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:04:13.148" endtime="20230801 16:04:13.296"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:04:16.298" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:04:13.296" endtime="20230801 16:04:16.298"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:04:16.299" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:04:16.831" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-61.png"&gt;&lt;img src="selenium-screenshot-61.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:04:16.831" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:04:16.298" endtime="20230801 16:04:16.834"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.834" endtime="20230801 16:04:16.834"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.834" endtime="20230801 16:04:16.834"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.834" endtime="20230801 16:04:16.834"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.834" endtime="20230801 16:04:16.834"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.834" endtime="20230801 16:04:16.834"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.834" endtime="20230801 16:04:16.835"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.835" endtime="20230801 16:04:16.835"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.835" endtime="20230801 16:04:16.835"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.835" endtime="20230801 16:04:16.835"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.835" endtime="20230801 16:04:16.835"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.835" endtime="20230801 16:04:16.835"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:16.835" endtime="20230801 16:04:16.835"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:04:10.764" endtime="20230801 16:04:16.836"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:16.837" endtime="20230801 16:04:16.837"/>
+</kw>
+<kw name="And CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:16.837" endtime="20230801 16:04:16.837"/>
+</kw>
+<kw name="Then CT Fill Distress Form for Police agency" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:16.837" endtime="20230801 16:04:16.837"/>
+</kw>
+<kw name="And Open Chrome in Incognito Mode and Login To Dispatcher" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:16.838" endtime="20230801 16:04:16.838"/>
+</kw>
+<kw name="And CT DispatchEvent" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:16.838" endtime="20230801 16:04:16.838"/>
+</kw>
+<kw name="Then Verify the CFS Incident in Dispatcher" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:16.838" endtime="20230801 16:04:16.838"/>
+</kw>
+<tag>AS-4198</tag>
+<status status="FAIL" starttime="20230801 16:04:10.762" endtime="20230801 16:04:16.839">NoSuchElementException: Message: Cannot locate option with value: 102
+</status>
+</test>
+<status status="FAIL" starttime="20230801 16:04:10.440" endtime="20230801 16:04:16.840"/>
+</suite>
+<suite id="s1-s2" name="Questionnaires" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker\Questionnaires.robot">
+<test id="s1-s2-t1" name="Test Case 1 : Verify user is able to navigate Multiple Questionaries" line="8">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:04:16.857" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:04:16.857" endtime="20230801 16:04:16.857"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:04:16.869" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:04:16.870" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:04:16.870" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:04:16.857" endtime="20230801 16:04:16.870"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:04:16.870" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:04:16.880" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:04:16.870" endtime="20230801 16:04:19.266"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:04:19.266" endtime="20230801 16:04:19.439"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:04:19.439" endtime="20230801 16:04:19.477"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:04:19.478" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:04:19.477" endtime="20230801 16:04:19.608"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:04:22.609" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:04:19.609" endtime="20230801 16:04:22.609"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:04:22.611" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:04:23.202" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-62.png"&gt;&lt;img src="selenium-screenshot-62.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:04:23.203" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:04:22.609" endtime="20230801 16:04:23.204"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.204" endtime="20230801 16:04:23.204"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.204" endtime="20230801 16:04:23.204"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.205" endtime="20230801 16:04:23.205"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.205" endtime="20230801 16:04:23.205"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.205" endtime="20230801 16:04:23.205"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.206" endtime="20230801 16:04:23.206"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.206" endtime="20230801 16:04:23.206"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.206" endtime="20230801 16:04:23.206"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.206" endtime="20230801 16:04:23.206"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.206" endtime="20230801 16:04:23.206"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.207" endtime="20230801 16:04:23.207"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:23.208" endtime="20230801 16:04:23.208"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:04:16.857" endtime="20230801 16:04:23.208"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:23.209" endtime="20230801 16:04:23.209"/>
+</kw>
+<kw name="Then CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:23.210" endtime="20230801 16:04:23.210"/>
+</kw>
+<kw name="Then CT Fill Distress Form for Police agency" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:23.211" endtime="20230801 16:04:23.211"/>
+</kw>
+<kw name="And CT DispatchEvent" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:23.211" endtime="20230801 16:04:23.211"/>
+</kw>
+<tag>HappyFLow</tag>
+<status status="FAIL" starttime="20230801 16:04:16.856" endtime="20230801 16:04:23.211">NoSuchElementException: Message: Cannot locate option with value: 102
+</status>
+</test>
+<status status="FAIL" starttime="20230801 16:04:16.842" endtime="20230801 16:04:23.215"/>
+</suite>
+<suite id="s1-s3" name="Related" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker\Related.robot">
+<test id="s1-s3-t1" name="Test Case 1 : Verify user is able to view Related events" line="8">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:04:23.258" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:04:23.257" endtime="20230801 16:04:23.258"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:04:23.278" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:04:23.278" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:04:23.278" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:04:23.258" endtime="20230801 16:04:23.278"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:04:23.281" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:04:23.315" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:04:23.279" endtime="20230801 16:04:25.538"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:04:25.538" endtime="20230801 16:04:25.726"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:04:25.726" endtime="20230801 16:04:25.766"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:04:25.767" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:04:25.766" endtime="20230801 16:04:25.876"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:04:28.877" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:04:25.877" endtime="20230801 16:04:28.877"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:04:28.878" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:04:29.566" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-63.png"&gt;&lt;img src="selenium-screenshot-63.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:04:29.566" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:04:28.877" endtime="20230801 16:04:29.567"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.567" endtime="20230801 16:04:29.567"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.567" endtime="20230801 16:04:29.567"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.567" endtime="20230801 16:04:29.567"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.567" endtime="20230801 16:04:29.568"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.568" endtime="20230801 16:04:29.568"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.568" endtime="20230801 16:04:29.568"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.568" endtime="20230801 16:04:29.568"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.568" endtime="20230801 16:04:29.568"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.568" endtime="20230801 16:04:29.568"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.568" endtime="20230801 16:04:29.569"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.569" endtime="20230801 16:04:29.569"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:29.569" endtime="20230801 16:04:29.569"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:04:23.256" endtime="20230801 16:04:29.569"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:29.570" endtime="20230801 16:04:29.570"/>
+</kw>
+<kw name="And CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:29.571" endtime="20230801 16:04:29.571"/>
+</kw>
+<kw name="Then CT user is able to view Related events" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:29.571" endtime="20230801 16:04:29.571"/>
+</kw>
+<tag>HappyFLow</tag>
+<status status="FAIL" starttime="20230801 16:04:23.255" endtime="20230801 16:04:29.572">NoSuchElementException: Message: Cannot locate option with value: 102
+</status>
+</test>
+<status status="FAIL" starttime="20230801 16:04:23.219" endtime="20230801 16:04:29.574"/>
+</suite>
+<suite id="s1-s4" name="SOP" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker\SOP.robot">
+<test id="s1-s4-t1" name="Test Case 1:Verify user is able view SOP based on incident type" line="8">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:04:29.604" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:04:29.604" endtime="20230801 16:04:29.604"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:04:29.638" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:04:29.638" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:04:29.638" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:04:29.604" endtime="20230801 16:04:29.638"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:04:29.639" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:04:29.654" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:04:29.638" endtime="20230801 16:04:31.774"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:04:31.774" endtime="20230801 16:04:31.953"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:04:31.953" endtime="20230801 16:04:31.992"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:04:31.993" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:04:31.992" endtime="20230801 16:04:32.114"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:04:35.114" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:04:32.114" endtime="20230801 16:04:35.114"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:04:35.116" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:04:35.752" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-64.png"&gt;&lt;img src="selenium-screenshot-64.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:04:35.752" level="FAIL">List with locator '(//select[contains(@class,'ng-untouched ')])[2]' not found.</msg>
+<status status="FAIL" starttime="20230801 16:04:35.114" endtime="20230801 16:04:35.757"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.757" endtime="20230801 16:04:35.757"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.757" endtime="20230801 16:04:35.757"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.757" endtime="20230801 16:04:35.757"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.757" endtime="20230801 16:04:35.757"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.758" endtime="20230801 16:04:35.758"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.758" endtime="20230801 16:04:35.758"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.758" endtime="20230801 16:04:35.758"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.758" endtime="20230801 16:04:35.758"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.758" endtime="20230801 16:04:35.758"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.759" endtime="20230801 16:04:35.759"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.759" endtime="20230801 16:04:35.759"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:35.759" endtime="20230801 16:04:35.759"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:04:29.603" endtime="20230801 16:04:35.759"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:35.760" endtime="20230801 16:04:35.760"/>
+</kw>
+<kw name="Then CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:35.760" endtime="20230801 16:04:35.760"/>
+</kw>
+<kw name="Then CT Fill Distress Form for Police agency" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:35.761" endtime="20230801 16:04:35.761"/>
+</kw>
+<kw name="And CT user verify SOP" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:35.761" endtime="20230801 16:04:35.761"/>
+</kw>
+<tag>HappyFLow</tag>
+<status status="FAIL" starttime="20230801 16:04:29.600" endtime="20230801 16:04:35.762">List with locator '(//select[contains(@class,'ng-untouched ')])[2]' not found.</status>
+</test>
+<status status="FAIL" starttime="20230801 16:04:29.578" endtime="20230801 16:04:35.764"/>
+</suite>
+<suite id="s1-s5" name="TCADAR2-1443" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker\TCADAR2-1443.robot">
+<test id="s1-s5-t1" name="Testcase one: Verfiy calltype change to Blank call" line="7">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:04:35.802" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:04:35.802" endtime="20230801 16:04:35.802"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:04:35.817" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:04:35.817" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:04:35.817" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:04:35.803" endtime="20230801 16:04:35.817"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:04:35.818" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:04:35.833" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:04:35.817" endtime="20230801 16:04:38.062"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:04:38.062" endtime="20230801 16:04:38.236"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:04:38.236" endtime="20230801 16:04:38.337"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:04:38.339" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:04:38.338" endtime="20230801 16:04:38.474"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:04:41.475" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:04:38.474" endtime="20230801 16:04:41.475"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:04:41.477" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:04:42.237" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-65.png"&gt;&lt;img src="selenium-screenshot-65.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:04:42.237" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:04:41.475" endtime="20230801 16:04:42.237"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.238" endtime="20230801 16:04:42.238"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.238" endtime="20230801 16:04:42.238"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.238" endtime="20230801 16:04:42.238"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.238" endtime="20230801 16:04:42.238"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.238" endtime="20230801 16:04:42.239"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.239" endtime="20230801 16:04:42.239"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.239" endtime="20230801 16:04:42.239"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.239" endtime="20230801 16:04:42.239"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.239" endtime="20230801 16:04:42.239"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.239" endtime="20230801 16:04:42.240"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.240" endtime="20230801 16:04:42.240"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:42.240" endtime="20230801 16:04:42.240"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:04:35.801" endtime="20230801 16:04:42.240"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:42.241" endtime="20230801 16:04:42.241"/>
+</kw>
+<kw name="Then CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:42.241" endtime="20230801 16:04:42.241"/>
+</kw>
+<kw name="And CT Change Call Type" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:42.242" endtime="20230801 16:04:42.242"/>
+</kw>
+<tag>AS-4182</tag>
+<status status="FAIL" starttime="20230801 16:04:35.800" endtime="20230801 16:04:42.242">NoSuchElementException: Message: Cannot locate option with value: 102
+</status>
+</test>
+<status status="FAIL" starttime="20230801 16:04:35.769" endtime="20230801 16:04:42.245"/>
+</suite>
+<suite id="s1-s6" name="TCADAR2-1444" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker\TCADAR2-1444.robot">
+<test id="s1-s6-t1" name="Testcase_One: Verify distress form filling for Police agency" line="6">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:04:42.289" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:04:42.288" endtime="20230801 16:04:42.289"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:04:42.343" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:04:42.343" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:04:42.343" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:04:42.289" endtime="20230801 16:04:42.343"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:04:42.344" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:04:42.362" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:04:42.343" endtime="20230801 16:04:44.733"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:04:44.733" endtime="20230801 16:04:45.017"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:04:45.017" endtime="20230801 16:04:45.241"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:04:45.242" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:04:45.242" endtime="20230801 16:04:45.415"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:04:48.417" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:04:45.415" endtime="20230801 16:04:48.417"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:04:48.418" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:04:49.151" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-66.png"&gt;&lt;img src="selenium-screenshot-66.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:04:49.151" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:04:48.417" endtime="20230801 16:04:49.153"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.153" endtime="20230801 16:04:49.153"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.154" endtime="20230801 16:04:49.154"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.154" endtime="20230801 16:04:49.154"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.154" endtime="20230801 16:04:49.154"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.154" endtime="20230801 16:04:49.154"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.155" endtime="20230801 16:04:49.155"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.155" endtime="20230801 16:04:49.155"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.155" endtime="20230801 16:04:49.155"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.155" endtime="20230801 16:04:49.155"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.156" endtime="20230801 16:04:49.156"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.156" endtime="20230801 16:04:49.156"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:49.156" endtime="20230801 16:04:49.156"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:04:42.288" endtime="20230801 16:04:49.156"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:49.157" endtime="20230801 16:04:49.157"/>
+</kw>
+<kw name="And CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:49.158" endtime="20230801 16:04:49.158"/>
+</kw>
+<kw name="Then CT Fill Distress Form for Police agency" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:49.158" endtime="20230801 16:04:49.158"/>
+</kw>
+<kw name="And Open Chrome in Incognito Mode and Login To Dispatcher" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:49.159" endtime="20230801 16:04:49.159"/>
+</kw>
+<kw name="And CT DispatchEvent" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:49.159" endtime="20230801 16:04:49.159"/>
+</kw>
+<kw name="Then Verify the CFS Incident in Dispatcher" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:49.159" endtime="20230801 16:04:49.159"/>
+</kw>
+<tag>AS-4206</tag>
+<status status="FAIL" starttime="20230801 16:04:42.286" endtime="20230801 16:04:49.160">NoSuchElementException: Message: Cannot locate option with value: 102
+</status>
+</test>
+<test id="s1-s6-t2" name="Testcase_Two: Verify distress form filling for EMS agency" line="16">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:04:49.164" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:04:49.164" endtime="20230801 16:04:49.164"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:04:49.199" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:04:49.199" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:04:49.199" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:04:49.164" endtime="20230801 16:04:49.199"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:04:49.201" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:04:49.219" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:04:49.200" endtime="20230801 16:04:51.711"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:04:51.711" endtime="20230801 16:04:51.875"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:04:51.876" endtime="20230801 16:04:52.050"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:04:52.051" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:04:52.050" endtime="20230801 16:04:52.290"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:04:55.292" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:04:52.290" endtime="20230801 16:04:55.292"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:04:55.293" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:04:56.185" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-67.png"&gt;&lt;img src="selenium-screenshot-67.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:04:56.185" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:04:55.292" endtime="20230801 16:04:56.187"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.187" endtime="20230801 16:04:56.187"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.187" endtime="20230801 16:04:56.187"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.187" endtime="20230801 16:04:56.187"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.187" endtime="20230801 16:04:56.188"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.188" endtime="20230801 16:04:56.188"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.190" endtime="20230801 16:04:56.190"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.191" endtime="20230801 16:04:56.191"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.192" endtime="20230801 16:04:56.192"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.193" endtime="20230801 16:04:56.193"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.193" endtime="20230801 16:04:56.193"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.193" endtime="20230801 16:04:56.193"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:04:56.193" endtime="20230801 16:04:56.193"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:04:49.163" endtime="20230801 16:04:56.194"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:56.195" endtime="20230801 16:04:56.195"/>
+</kw>
+<kw name="And CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:56.195" endtime="20230801 16:04:56.195"/>
+</kw>
+<kw name="Then CT Verify distress form filling for EMS agency" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:04:56.196" endtime="20230801 16:04:56.196"/>
+</kw>
+<tag>AS-4207</tag>
+<status status="FAIL" starttime="20230801 16:04:49.162" endtime="20230801 16:04:56.196">NoSuchElementException: Message: Cannot locate option with value: 102
+</status>
+</test>
+<test id="s1-s6-t3" name="Testcase_Three: Verify distress form filling for Fire agency" line="24">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:04:56.201" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:04:56.201" endtime="20230801 16:04:56.201"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:04:56.223" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:04:56.224" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:04:56.224" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:04:56.201" endtime="20230801 16:04:56.224"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:04:56.228" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:04:56.262" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:04:56.225" endtime="20230801 16:04:58.741"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:04:58.741" endtime="20230801 16:04:58.941"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:04:58.941" endtime="20230801 16:04:59.073"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:04:59.074" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:04:59.073" endtime="20230801 16:04:59.210"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:05:02.210" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:04:59.210" endtime="20230801 16:05:02.210"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:05:02.211" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:05:03.004" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-68.png"&gt;&lt;img src="selenium-screenshot-68.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:05:03.004" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:05:02.210" endtime="20230801 16:05:03.005"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.005" endtime="20230801 16:05:03.005"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.005" endtime="20230801 16:05:03.005"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.006" endtime="20230801 16:05:03.006"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.006" endtime="20230801 16:05:03.006"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.006" endtime="20230801 16:05:03.006"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.006" endtime="20230801 16:05:03.006"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.006" endtime="20230801 16:05:03.006"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.007" endtime="20230801 16:05:03.007"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.007" endtime="20230801 16:05:03.007"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.007" endtime="20230801 16:05:03.007"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.007" endtime="20230801 16:05:03.007"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:03.007" endtime="20230801 16:05:03.007"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:04:56.200" endtime="20230801 16:05:03.007"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:03.008" endtime="20230801 16:05:03.008"/>
+</kw>
+<kw name="And CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:03.008" endtime="20230801 16:05:03.008"/>
+</kw>
+<kw name="Then CT Verify distress form filling for Fire agency" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:03.009" endtime="20230801 16:05:03.009"/>
+</kw>
+<tag>AS-4208</tag>
+<status status="FAIL" starttime="20230801 16:04:56.199" endtime="20230801 16:05:03.009">NoSuchElementException: Message: Cannot locate option with value: 102
+</status>
+</test>
+<test id="s1-s6-t4" name="Testcase_Four: Verify distress form filling for multi agency" line="31">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:05:03.012" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:05:03.012" endtime="20230801 16:05:03.012"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:05:03.047" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:05:03.047" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:05:03.047" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:05:03.012" endtime="20230801 16:05:03.047"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:05:03.049" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:05:03.064" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:05:03.048" endtime="20230801 16:05:05.212"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:05:05.213" endtime="20230801 16:05:05.438"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:05:05.438" endtime="20230801 16:05:05.470"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:05:05.472" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:05:05.471" endtime="20230801 16:05:05.653"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:05:08.654" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:05:05.653" endtime="20230801 16:05:08.654"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:05:08.656" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:05:08.674" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=115.0.5790.102)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00F7A813+48355]
+	(No symbol) [0x00F0C4B1]
+	(No symbol) [0x00E15358]
+	(No symbol) [0x00DFD293]
+	(No symbol) [0x00E5E37B]
+	(No symbol) [0x00E6C473]
+	(No symbol) [0x00E5A536]
+	(No symbol) [0x00E382DC]
+	(No symbol) [0x00E393DD]
+	GetHandleVerifier [0x011DAABD+2539405]
+	GetHandleVerifier [0x0121A78F+2800735]
+	GetHandleVerifier [0x0121456C+2775612]
+	GetHandleVerifier [0x010051E0+616112]
+	(No symbol) [0x00F15F8C]
+	(No symbol) [0x00F12328]
+	(No symbol) [0x00F1240B]
+	(No symbol) [0x00F04FF7]
+	BaseThreadInitThunk [0x762000C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77EB7AEE+238]
+</msg>
+<msg timestamp="20230801 16:05:08.678" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=115.0.5790.102)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00F7A813+48355]
+	(No symbol) [0x00F0C4B1]
+	(No symbol) [0x00E15358]
+	(No symbol) [0x00DFD293]
+	(No symbol) [0x00E5E37B]
+	(No symbol) [0x00E6C473]
+	(No symbol) [0x00E5A536]
+	(No symbol) [0x00E382DC]
+	(No symbol) [0x00E393DD]
+	GetHandleVerifier [0x011DAABD+2539405]
+	GetHandleVerifier [0x0121A78F+2800735]
+	GetHandleVerifier [0x0121456C+2775612]
+	GetHandleVerifier [0x010051E0+616112]
+	(No symbol) [0x00F15F8C]
+	(No symbol) [0x00F12328]
+	(No symbol) [0x00F1240B]
+	(No symbol) [0x00F04FF7]
+	BaseThreadInitThunk [0x762000C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77EB7AEE+238]
+</msg>
+<status status="FAIL" starttime="20230801 16:05:08.654" endtime="20230801 16:05:08.687"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.687" endtime="20230801 16:05:08.688"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.688" endtime="20230801 16:05:08.688"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.689" endtime="20230801 16:05:08.689"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.690" endtime="20230801 16:05:08.690"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.690" endtime="20230801 16:05:08.690"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.690" endtime="20230801 16:05:08.691"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.691" endtime="20230801 16:05:08.691"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.691" endtime="20230801 16:05:08.692"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.692" endtime="20230801 16:05:08.692"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.692" endtime="20230801 16:05:08.693"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.693" endtime="20230801 16:05:08.693"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:08.693" endtime="20230801 16:05:08.693"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:05:03.012" endtime="20230801 16:05:08.694"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:08.695" endtime="20230801 16:05:08.695"/>
+</kw>
+<kw name="And CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:08.696" endtime="20230801 16:05:08.696"/>
+</kw>
+<kw name="Then CT Fill Distress Form for Police agency" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:08.697" endtime="20230801 16:05:08.697"/>
+</kw>
+<kw name="Then CT Verify distress form filling for EMS agency" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:08.698" endtime="20230801 16:05:08.698"/>
+</kw>
+<kw name="Then CT Verify distress form filling for Fire agency" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:08.699" endtime="20230801 16:05:08.699"/>
+</kw>
+<tag>AS-4196</tag>
+<status status="FAIL" starttime="20230801 16:05:03.010" endtime="20230801 16:05:08.700">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=115.0.5790.102)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00F7A813+48355]
+	(No symbol) [0x00F0C4B1]
+	(No symbol) [0x00E15358]
+	(No symbol) [0x00DFD293]
+	(No symbol) [0x00E5E37B]
+	(No symbol) [0x00E6C473]
+	(No symbol) [0x00E5A536]
+	(No symbol) [0x00E382DC]
+	(No symbol) [0x00E393DD]
+	GetHandleVerifier [0x011DAABD+2539405]
+	GetHandleVerifier [0x0121A78F+2800735]
+	GetHandleVerifier [0x0121456C+2775612]
+	GetHandleVerifier [0x010051E0+616112]
+	(No symbol) [0x00F15F8C]
+	(No symbol) [0x00F12328]
+	(No symbol) [0x00F1240B]
+	(No symbol) [0x00F04FF7]
+	BaseThreadInitThunk [0x762000C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77EB7AEE+238]
+</status>
+</test>
+<status status="FAIL" starttime="20230801 16:04:42.249" endtime="20230801 16:05:08.708"/>
+</suite>
+<suite id="s1-s7" name="TCADAR2-1445" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker\TCADAR2-1445.robot">
+<test id="s1-s7-t1" name="Testcase 1: Verify user is able to Edit ANI" line="6">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:05:08.767" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:05:08.767" endtime="20230801 16:05:08.767"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:05:08.836" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:05:08.837" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:05:08.837" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:05:08.767" endtime="20230801 16:05:08.837"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:05:08.840" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:05:08.882" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:05:08.838" endtime="20230801 16:05:11.272"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:05:11.272" endtime="20230801 16:05:11.419"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:05:11.420" endtime="20230801 16:05:11.448"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:05:11.450" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:05:11.449" endtime="20230801 16:05:11.600"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:05:14.601" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:05:11.600" endtime="20230801 16:05:14.601"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:05:14.603" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:05:14.614" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=115.0.5790.102)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00F7A813+48355]
+	(No symbol) [0x00F0C4B1]
+	(No symbol) [0x00E15358]
+	(No symbol) [0x00DFD293]
+	(No symbol) [0x00E5E37B]
+	(No symbol) [0x00E6C473]
+	(No symbol) [0x00E5A536]
+	(No symbol) [0x00E382DC]
+	(No symbol) [0x00E393DD]
+	GetHandleVerifier [0x011DAABD+2539405]
+	GetHandleVerifier [0x0121A78F+2800735]
+	GetHandleVerifier [0x0121456C+2775612]
+	GetHandleVerifier [0x010051E0+616112]
+	(No symbol) [0x00F15F8C]
+	(No symbol) [0x00F12328]
+	(No symbol) [0x00F1240B]
+	(No symbol) [0x00F04FF7]
+	BaseThreadInitThunk [0x762000C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77EB7AEE+238]
+</msg>
+<msg timestamp="20230801 16:05:14.618" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=115.0.5790.102)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00F7A813+48355]
+	(No symbol) [0x00F0C4B1]
+	(No symbol) [0x00E15358]
+	(No symbol) [0x00DFD293]
+	(No symbol) [0x00E5E37B]
+	(No symbol) [0x00E6C473]
+	(No symbol) [0x00E5A536]
+	(No symbol) [0x00E382DC]
+	(No symbol) [0x00E393DD]
+	GetHandleVerifier [0x011DAABD+2539405]
+	GetHandleVerifier [0x0121A78F+2800735]
+	GetHandleVerifier [0x0121456C+2775612]
+	GetHandleVerifier [0x010051E0+616112]
+	(No symbol) [0x00F15F8C]
+	(No symbol) [0x00F12328]
+	(No symbol) [0x00F1240B]
+	(No symbol) [0x00F04FF7]
+	BaseThreadInitThunk [0x762000C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77EB7AEE+238]
+</msg>
+<status status="FAIL" starttime="20230801 16:05:14.601" endtime="20230801 16:05:14.622"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.623" endtime="20230801 16:05:14.623"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.623" endtime="20230801 16:05:14.623"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.623" endtime="20230801 16:05:14.623"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.624" endtime="20230801 16:05:14.624"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.624" endtime="20230801 16:05:14.624"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.624" endtime="20230801 16:05:14.624"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.624" endtime="20230801 16:05:14.624"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.625" endtime="20230801 16:05:14.625"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.625" endtime="20230801 16:05:14.625"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.625" endtime="20230801 16:05:14.625"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.625" endtime="20230801 16:05:14.625"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:14.626" endtime="20230801 16:05:14.626"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:05:08.766" endtime="20230801 16:05:14.626"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:14.627" endtime="20230801 16:05:14.627"/>
+</kw>
+<kw name="And CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:14.627" endtime="20230801 16:05:14.627"/>
+</kw>
+<kw name="And CT Update ANI info from the ANI/ALI section" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:14.628" endtime="20230801 16:05:14.628"/>
+</kw>
+<kw name="Then Verify the Toaster Ani Updated Successfully toaster" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:14.629" endtime="20230801 16:05:14.629"/>
+</kw>
+<kw name="And Verify Caller Number in Ani section" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:14.629" endtime="20230801 16:05:14.629"/>
+</kw>
+<tag>AS-4209</tag>
+<status status="FAIL" starttime="20230801 16:05:08.764" endtime="20230801 16:05:14.630">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=115.0.5790.102)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00F7A813+48355]
+	(No symbol) [0x00F0C4B1]
+	(No symbol) [0x00E15358]
+	(No symbol) [0x00DFD293]
+	(No symbol) [0x00E5E37B]
+	(No symbol) [0x00E6C473]
+	(No symbol) [0x00E5A536]
+	(No symbol) [0x00E382DC]
+	(No symbol) [0x00E393DD]
+	GetHandleVerifier [0x011DAABD+2539405]
+	GetHandleVerifier [0x0121A78F+2800735]
+	GetHandleVerifier [0x0121456C+2775612]
+	GetHandleVerifier [0x010051E0+616112]
+	(No symbol) [0x00F15F8C]
+	(No symbol) [0x00F12328]
+	(No symbol) [0x00F1240B]
+	(No symbol) [0x00F04FF7]
+	BaseThreadInitThunk [0x762000C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77EB7AEE+238]
+</status>
+</test>
+<test id="s1-s7-t2" name="Testcase 2: Verify user is able Update ANI details to distress form" line="15">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:05:14.636" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:05:14.635" endtime="20230801 16:05:14.636"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:05:14.662" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:05:14.663" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:05:14.663" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:05:14.636" endtime="20230801 16:05:14.663"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:05:14.665" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:05:14.688" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:05:14.663" endtime="20230801 16:05:16.931"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:05:16.931" endtime="20230801 16:05:17.132"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:05:17.132" endtime="20230801 16:05:17.172"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:05:17.173" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:05:17.172" endtime="20230801 16:05:17.318"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:05:20.319" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:05:17.318" endtime="20230801 16:05:20.319"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:05:20.320" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:05:21.036" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-69.png"&gt;&lt;img src="selenium-screenshot-69.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:05:21.037" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:05:20.319" endtime="20230801 16:05:21.037"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.038" endtime="20230801 16:05:21.038"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.038" endtime="20230801 16:05:21.038"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.038" endtime="20230801 16:05:21.038"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.038" endtime="20230801 16:05:21.038"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.038" endtime="20230801 16:05:21.038"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.038" endtime="20230801 16:05:21.038"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.038" endtime="20230801 16:05:21.038"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.038" endtime="20230801 16:05:21.038"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.038" endtime="20230801 16:05:21.038"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.039" endtime="20230801 16:05:21.039"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.039" endtime="20230801 16:05:21.039"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:21.039" endtime="20230801 16:05:21.039"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:05:14.635" endtime="20230801 16:05:21.039"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:21.040" endtime="20230801 16:05:21.040"/>
+</kw>
+<kw name="And CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:21.040" endtime="20230801 16:05:21.040"/>
+</kw>
+<kw name="Then CT Update ANI info from the ANI/ALI section" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:21.041" endtime="20230801 16:05:21.041"/>
+</kw>
+<kw name="And Copy the ANI information to DistressInformation" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:21.041" endtime="20230801 16:05:21.042"/>
+</kw>
+<tag>AS-4211</tag>
+<status status="FAIL" starttime="20230801 16:05:14.633" endtime="20230801 16:05:21.042">NoSuchElementException: Message: Cannot locate option with value: 102
+</status>
+</test>
+<test id="s1-s7-t3" name="Testcase 3: Verify user is able to Block contact" line="23">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:05:21.046" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:05:21.046" endtime="20230801 16:05:21.046"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:05:21.055" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:05:21.056" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:05:21.056" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:05:21.046" endtime="20230801 16:05:21.056"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:05:21.056" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:05:21.067" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:05:21.056" endtime="20230801 16:05:23.035"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:05:23.035" endtime="20230801 16:05:23.259"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:05:23.259" endtime="20230801 16:05:23.330"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:05:23.332" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:05:23.331" endtime="20230801 16:05:23.497"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:05:26.498" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:05:23.497" endtime="20230801 16:05:26.498"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:05:26.498" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:05:27.272" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-70.png"&gt;&lt;img src="selenium-screenshot-70.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:05:27.272" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:05:26.498" endtime="20230801 16:05:27.273"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.273" endtime="20230801 16:05:27.273"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.273" endtime="20230801 16:05:27.273"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.274" endtime="20230801 16:05:27.274"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.274" endtime="20230801 16:05:27.274"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.274" endtime="20230801 16:05:27.274"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.274" endtime="20230801 16:05:27.274"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.274" endtime="20230801 16:05:27.274"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.275" endtime="20230801 16:05:27.275"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.275" endtime="20230801 16:05:27.275"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.275" endtime="20230801 16:05:27.275"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.275" endtime="20230801 16:05:27.275"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:27.276" endtime="20230801 16:05:27.276"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:05:21.045" endtime="20230801 16:05:27.276"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:27.278" endtime="20230801 16:05:27.278"/>
+</kw>
+<kw name="And CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:27.278" endtime="20230801 16:05:27.278"/>
+</kw>
+<kw name="And CT Block ANI Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:27.279" endtime="20230801 16:05:27.279"/>
+</kw>
+<tag>AS-4224</tag>
+<status status="FAIL" starttime="20230801 16:05:21.044" endtime="20230801 16:05:27.279">NoSuchElementException: Message: Cannot locate option with value: 102
+</status>
+</test>
+<status status="FAIL" starttime="20230801 16:05:08.716" endtime="20230801 16:05:27.284"/>
+</suite>
+<suite id="s1-s8" name="TCADAR2-604" source="C:\CADApplication_Robot\TestCases\HappyFlow\CallTaker\TCADAR2-604.robot">
+<test id="s1-s8-t1" name="Test Case 1 : Verify manual event creation with number" line="6">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:05:27.321" level="INFO">${data} = C:\CADApplication_Robot\File_Upload\FlightPrice_DatasetTrain.csv</msg>
+<status status="PASS" starttime="20230801 16:05:27.321" endtime="20230801 16:05:27.322"/>
+</kw>
+<kw name="Get Ngcad Calltaker Details" library="VaultUtils">
+<var>${ngcad_url}</var>
+<var>${ngcad_username}</var>
+<var>${ngcad_password}</var>
+<msg timestamp="20230801 16:05:27.336" level="INFO">${ngcad_url} = https://trespondapp.tsf.com/NGCADApp/#/login</msg>
+<msg timestamp="20230801 16:05:27.336" level="INFO">${ngcad_username} = ABHICT</msg>
+<msg timestamp="20230801 16:05:27.336" level="INFO">${ngcad_password} = 123456</msg>
+<status status="PASS" starttime="20230801 16:05:27.322" endtime="20230801 16:05:27.336"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${ngcad_url}</arg>
+<arg>chrome</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230801 16:05:27.337" level="INFO">Opening browser 'chrome' to base url 'https://trespondapp.tsf.com/NGCADApp/#/login'.</msg>
+<msg timestamp="20230801 16:05:27.353" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230801 16:05:27.336" endtime="20230801 16:05:29.303"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230801 16:05:29.304" endtime="20230801 16:05:29.573"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CAD_Dispatcher_Selection_Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230801 16:05:29.574" endtime="20230801 16:05:29.603"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Selection}</arg>
+<arg>${CallTakerRoletype}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20230801 16:05:29.604" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[1]' by label COMMUNICATION OFFICER.</msg>
+<status status="PASS" starttime="20230801 16:05:29.603" endtime="20230801 16:05:29.754"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:05:32.755" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20230801 16:05:29.755" endtime="20230801 16:05:32.755"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${CAD_Dispatcher_Workstation}</arg>
+<arg>${Cad_Workstation}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20230801 16:05:32.757" level="INFO">Selecting options from selection list '(//select[contains(@class,'ng-untouched ')])[2]' by value 102.</msg>
+<msg timestamp="20230801 16:05:33.543" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-71.png"&gt;&lt;img src="selenium-screenshot-71.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:05:33.543" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: 102
+</msg>
+<status status="FAIL" starttime="20230801 16:05:32.755" endtime="20230801 16:05:33.544"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.545" endtime="20230801 16:05:33.545"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DisPUserNameField}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.545" endtime="20230801 16:05:33.545"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserNameField}</arg>
+<arg>${Cad_username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.545" endtime="20230801 16:05:33.545"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.545" endtime="20230801 16:05:33.546"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${UserPasswordField}</arg>
+<arg>${Cad_Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.546" endtime="20230801 16:05:33.546"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${Calltaker_Screenshot_Path}/CAD.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.546" endtime="20230801 16:05:33.546"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/ui.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.546" endtime="20230801 16:05:33.547"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.547" endtime="20230801 16:05:33.547"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${CAD_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.547" endtime="20230801 16:05:33.547"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${CTCreateManualEvent}</arg>
+<arg>${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.547" endtime="20230801 16:05:33.547"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>ngcadapp</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.548" endtime="20230801 16:05:33.548"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${currentDir}/Login_to_Dispatcher.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20230801 16:05:33.549" endtime="20230801 16:05:33.549"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:05:27.320" endtime="20230801 16:05:33.549"/>
+</kw>
+<kw name="When CT Verify CallTaker Home Page And Title" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:33.550" endtime="20230801 16:05:33.550"/>
+</kw>
+<kw name="Then CT Create Manual Event With Number" library="CallTaker_Home_Page">
+<status status="NOT RUN" starttime="20230801 16:05:33.551" endtime="20230801 16:05:33.551"/>
+</kw>
+<kw name="TearDown Lagout" library="CallTaker_Home_Page" type="TEARDOWN">
+<kw name="Reload Page" library="SeleniumLibrary">
+<doc>Simulates user reloading page.</doc>
+<status status="PASS" starttime="20230801 16:05:33.552" endtime="20230801 16:05:34.032"/>
+</kw>
+<kw name="Handle Alert" library="SeleniumLibrary">
+<arg>action=ACCEPT</arg>
+<arg>timeout=5s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<msg timestamp="20230801 16:05:34.033" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:05</msg>
+<msg timestamp="20230801 16:05:39.680" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-72.png"&gt;&lt;img src="selenium-screenshot-72.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:05:39.681" level="FAIL">Alert not found in 5 seconds.</msg>
+<status status="FAIL" starttime="20230801 16:05:34.032" endtime="20230801 16:05:39.684"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230801 16:05:44.685" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230801 16:05:39.684" endtime="20230801 16:05:44.685"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<var>${Operator_Lagout}</var>
+<arg>${Operator_Lagout_JS}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20230801 16:05:44.687" level="INFO">Executing JavaScript:
+return document.querySelector("body &gt; app-root &gt; app-app-load &gt; div &gt; t-header &gt; div:nth-child(13) &gt; t-button").shadowRoot.querySelector("span &gt; button")
+Without any arguments.</msg>
+<msg timestamp="20230801 16:05:45.674" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-73.png"&gt;&lt;img src="selenium-screenshot-73.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:05:45.674" level="INFO">${Operator_Lagout} = None</msg>
+<msg timestamp="20230801 16:05:45.674" level="FAIL">JavascriptException: Message: javascript error: Cannot read properties of null (reading 'shadowRoot')
+  (Session info: chrome=115.0.5790.102)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00F7A813+48355]
+	(No symbol) [0x00F0C4B1]
+	(No symbol) [0x00E15358]
+	(No symbol) [0x00E187A1]
+	(No symbol) [0x00E1A19B]
+	(No symbol) [0x00E6D279]
+	(No symbol) [0x00E5A73C]
+	(No symbol) [0x00E6C922]
+	(No symbol) [0x00E5A536]
+	(No symbol) [0x00E382DC]
+	(No symbol) [0x00E393DD]
+	GetHandleVerifier [0x011DAABD+2539405]
+	GetHandleVerifier [0x0121A78F+2800735]
+	GetHandleVerifier [0x0121456C+2775612]
+	GetHandleVerifier [0x010051E0+616112]
+	(No symbol) [0x00F15F8C]
+	(No symbol) [0x00F12328]
+	(No symbol) [0x00F1240B]
+	(No symbol) [0x00F04FF7]
+	BaseThreadInitThunk [0x762000C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77EB7AEE+238]
+</msg>
+<status status="FAIL" starttime="20230801 16:05:44.686" endtime="20230801 16:05:45.677"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${Status}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${Operator_Lagout}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${Operator_Lagout}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230801 16:05:46.503" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-74.png"&gt;&lt;img src="selenium-screenshot-74.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230801 16:05:46.504" level="FAIL">TypeError: expected string or bytes-like object, got 'NoneType'</msg>
+<status status="FAIL" starttime="20230801 16:05:45.677" endtime="20230801 16:05:46.508"/>
+</kw>
+<msg timestamp="20230801 16:05:46.508" level="INFO">${Status} = False</msg>
+<status status="PASS" starttime="20230801 16:05:45.677" endtime="20230801 16:05:46.508"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${Status}</arg>
+<arg>Operator Lagout</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20230801 16:05:46.508" endtime="20230801 16:05:46.508"/>
+</kw>
+<status status="FAIL" starttime="20230801 16:05:33.552" endtime="20230801 16:05:46.509">Several failures occurred:
+
+1) Alert not found in 5 seconds.
+
+2) JavascriptException: Message: javascript error: Cannot read properties of null (reading 'shadowRoot')
+  (Session info: chrome=115.0.5790.102)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00F7A813+48355]
+	(No symbol) [0x00F0C4B1]
+	(No symbol) [0x00E15358]
+	(No symbol) [0x00E187A1]
+	(No symbol) [0x00E1A19B]
+	(No symbol) [0x00E6D279]
+	(No symbol) [0x00E5A73C]
+	(No symbol) [0x00E6C922]
+	(No symbol) [0x00E5A536]
+	(No symbol) [0x00E382DC]
+	(No symbol) [0x00E393DD]
+	GetHandleVerifier [0x011DAABD+2539405]
+	GetHandleVerifier [0x0121A78F+2800735]
+	GetHandleVerifier [0x0121456C+2775612]
+	GetHandleVerifier [0x010051E0+616112]
+	(No symbol) [0x00F15F8C]
+	(No symbol) [0x00F12328]
+	(No symbol) [0x00F1240B]
+	(No symbol) [0x00F04FF7]
+	BaseThreadInitThunk [0x762000C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77EB7AEE+238]
+</status>
+</kw>
+<tag>AS-4182</tag>
+<tag>smoke</tag>
+<status status="FAIL" starttime="20230801 16:05:27.317" endtime="20230801 16:05:46.510">NoSuchElementException: Message: Cannot locate option with value: 102
+
+
+Also teardown failed:
+Several failures occurred:
+
+1) Alert not found in 5 seconds.
+
+2) JavascriptException: Message: javascript error: Cannot read properties of null (reading 'shadowRoot')
+  (Session info: chrome=115.0.5790.102)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x00F7A813+48355]
+	(No symbol) [0x00F0C4B1]
+	(No symbol) [0x00E15358]
+	(No symbol) [0x00E187A1]
+	(No symbol) [0x00E1A19B]
+	(No symbol) [0x00E6D279]
+	(No symbol) [0x00E5A73C]
+	(No symbol) [0x00E6C922]
+	(No symbol) [0x00E5A536]
+	(No symbol) [0x00E382DC]
+	(No symbol) [0x00E393DD]
+	GetHandleVerifier [0x011DAABD+2539405]
+	GetHandleVerifier [0x0121A78F+2800735]
+	GetHandleVerifier [0x0121456C+2775612]
+	GetHandleVerifier [0x010051E0+616112]
+	(No symbol) [0x00F15F8C]
+	(No symbol) [0x00F12328]
+	(No symbol) [0x00F1240B]
+	(No symbol) [0x00F04FF7]
+	BaseThreadInitThunk [0x762000C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77EB7B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77EB7AEE+238]
+</status>
+</test>
+<test id="s1-s8-t2" name="Test Case 2 : Verify manual event creation without number" line="12">
+<kw name="Given Login To Call taker Operartor" library="CallTaker_Home_Page">
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>os.path.join(os.getcwd(), 'File_Upload', '${file_name}')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230801 16:05:46.518" level="INFO">

@@ -1,0 +1,349 @@
+
+UserNameField = "//input[contains(@placeholder,'Username')]"
+UserPasswordField = "//input[contains(@placeholder,'Password')]"
+CTCreateManualEvent = "//img[@src='assets/images/side-panel/manualEvent.png']"
+CTPrimaryNarrativeField = "//textarea[@name='eventComplaintInfo']"
+CTCreateManualEventClickCreate = "//button[@class='button gray create-event-btn default'][contains(.,'Create')]"
+CTSelectManualEventTypeField = "//select[@id='eventCreateType']"
+LogoutProfile = "//span[contains(@class,'menu-header-style b')]"
+Logout = "//span[text()='Logout']"
+LogoutYes = "//button[contains(.,'Yes')]"
+CADTitleValidate = "//span[text()='CAD']"
+CTDistressMap = "(//div[contains(@class,'col-md')]//span[contains(@class,'other-notification')])[1]"
+CTDistressMapSearchField = "(//input[@placeholder='Search'])[6]"
+CTMarkLocation = "//button[@title='Mark Searched Event']"
+CTMapMarkedLocationSuccessfullyToaster = "(//div[contains(.,'Event marked successfully')])[4]"
+CTMarkLocationOk = "//button[text()='OK']"
+CTDistressFirstNameField = "id:distInfoName1"
+CTDistressLastNameField = "//input[@placeholder='Last Name']"
+CTDistressGenderField = "(//input[contains(@role,'combobox')])[1]"
+CTDistressAilmentField = "(//input[contains(@role,'combobox')])[2]"
+CTDistressMainEventTypeField = "(//input[contains(@role,'combobox')])[3]"
+CTDistressPhoneNumberField = "id:distInfocontact"
+CTDistressAgeField = "name:distInfoage"
+CTDistressSubEventTypeField = "(//input[contains(@role,'combobox')])[4]"
+CTManualEventDispatch = "//button[text()=' Dispatch ']"
+CTManualEventselectDispatchUser = "(//tr[@class='pointer landingRow notselected'])[1]"
+CTDispatchEventActionField = "id:actions"
+DispatchEventActionYes = "//button[@type='button'][contains(.,'Yes')]"
+CTManualEventDispatchSuccessfullyToaster = "//div[@aria-label='Event dispatched successfully']"
+EventIDField = "(//div[@class='row custom-row fixed-height-callsList ng-star-inserted']//span)[1]"
+SearchEventIDButton = "(//em[@class='fa fa-search'])[1]"
+SearchEventITextField = "(//input[@placeholder='Search...'])[1]"
+VerifyPendingEventIDInDRO = "(//div[@class='row custom-row fixed-height-callsList ng-star-inserted']//span)[1]"
+DROPendingEvenEyeIcon = "(//button[@class='dropdown-toggle buttons-colvis'])[1]"
+DROVerifyPendingFirstName = "(//div[@id='SDEventDetails']//span)[2]"
+DROSelectUnitCheckbox = "(//input[contains(@name,'nearestCheckBox')])[1]"
+DRODispatchEventActionField = "//select[@class='inputedit']"
+DROEventAssignedSuccessfullyToaster = "(//div[contains(.,'Event Assigned successfully')])[4]"
+VerifyAssignedEventIDInDRO = "(//div[@class='row custom-row fixed-height-callsList ng-star-inserted']//span)[1]"
+DROAssignedEvenEyeIcon = "(//button[@class='dropdown-toggle buttons-colvis'])[1]"
+PedingEventTreeDots = "(//button[@id='button-container'])[1]"
+PedingEventTreeDotsHold = "//a[contains(.,'ON HOLD')]"
+PedingEventHoldRemarksField = "//input[contains(@class,'swal2-input')]"
+PedingEventHoldSubmit = "//button[@type='button'][contains(.,'Yes')]"
+VerifyHoldEventIDInDRO = "(//div[@class='row custom-row fixed-height-callsList ng-star-inserted']//span)[1]"
+DROHoldEvenEyeIcon = "(//button[@class='dropdown-toggle buttons-colvis'])[1]"
+PedingEventTreeDotsEdit = "//a[contains(.,'EDIT EVENT')]"
+NoOfEvents = "//*[@id='history']/div[2]/div[1]/div/div/div"
+RightClickOnEvent = "(//div[@id='history']//div)[8]"
+CTCrankCall = "//h5[contains(.,'CRANK CALL')]"
+CTCallClassificationReasonField = "//input[@class='swal2-input']"
+CTCrankCallSubmitYes = "//button[@type='button'][contains(.,'Yes')]"
+WaitUntilLogoutYes = "//div[@id='swal2-content']"
+EditPedingEventFirstNameField = "((//div[@class='col-md-12 content borderin default'])[1]//input)[1]"
+EditPedingEventNumberField = "((//div[@class='col-md-12 content borderin default'])[1]//input)[3]"
+EditPedingEventMainEventTypeField = "((//div[@class='col-md-12 content borderin default'])[1]//input)[5]"
+EditPedingEventSubEventTypeField = "((//div[@class='col-md-12 content borderin default'])[1]//input)[6]"
+EditPedingEventUpdate = "(//button[contains(.,'Update')])[1]"
+EventDetailsUpdatedSuccessfullyToaster = "(//div[contains(.,'Event details updated')])[4]"
+DROValidateFirstNameInEventDetailsRightPanel = "(//div[@id='SDEventDetails']//span)[2]"
+DROValidateNumberInEventDetailsRightPanel = "(//div[@id='SDEventDetails']//span)[3]"
+DROValidateEventTypeInEventDetailsRightPanel = "(//div[@id='SDEventDetails']//span)[8]"
+DROValidateSubEventTypeInEventDetailsRightPanel = "(//div[@id='SDEventDetails']//span)[9]"
+EditDistressMap = "((//div[@class='ui-modal'])[15]//em)[7]"
+EditPedingEventPoliceAgency = "//a[@href='#PoliceEditWindow']"
+EditPedingEventNarrativeField = "//*[@id='PoliceEditWindow']/div/div[3]/div/textarea"
+DispValidateFirstNameInEventDetailsRightPanel = "(//div[@id='DDEventDetails']//span)[2]"
+ValidateNumberInEventDetailsRightPanel = "(//div[@id='DDEventDetails']//span)[3]"
+ValidateEventTypeInEventDetailsRightPanel = "(//div[@id='DDEventDetails']//span)[5]"
+ValidateSubEventTypeInEventDetailsRightPanel = "(//div[@id='DDEventDetails']//span)[6]"
+DistressMapSearchField = "//input[@placeholder='Search']"
+DispEditPedingEventFirstNameField = "//*[@id='commonDetailsEditWindow']/div/div[1]/div[1]/input"
+DispEditPedingEventNumberField = "//*[@id='commonDetailsEditWindow']/div/div[1]/div[3]/input"
+DispEditPedingEventMainEventTypeField = "((//div[@class='col-md-12 content borderin default'])[1]//input)[5]"
+DispEditPedingEventSubEventTypeField = "((//div[@class='col-md-12 content borderin default'])[1]//input)[6]"
+DispEditPedingEventUpdate = "(//button[contains(.,'Update')])[1]"
+DisPUserNameField = "//input[contains(@placeholder,'Username')]"
+DispEditPedingEventLandMarkField = "((//div[@class='col-md-12 content borderin default'])[1]//input)[8]"
+DispEditPedingEventLocalityField = "((//div[@class='col-md-12 content borderin default'])[1]//input)[7]"
+DispEditPedingEventAddressField = "//*[@id='commonDetailsEditWindow']/div/div[6]/div/textarea"
+EditPedingEventStationTab = "(//button[@title='Filter Station'])[1]"
+EditPedingEventStationTabField = "//span[contains(.,'Police Stations')]"
+EditPedingEventStationAdd = "(//button[contains(.,'ADD')])[1]"
+EditPedingEventDetailsTab = "//a[@href='#commonDetailsEditWindow']"
+EditPedingEventStationSearchField = "(//input[@type='search'])[1]"
+DispMarkLocation = "//em[@class='fa fa-map-pin']"
+PedingEventTreeDotsClose = "//a[contains(.,'CLOSE EVENT')]"
+PedingEventCloseRemarksField = "(//input[@placeholder=''])[4]"
+PedingEventCloseSubmit = "//button[@type='button'][contains(.,'Submit')]"
+DROEventClosedSuccessfullyToaster = "(//div[contains(.,'Event Closed successfully')])[4]"
+DROEventAssignedSuccessfullyToasterClose = "//span[@class='ng-tns-c57-8'][contains(.,'×')]"
+DROChooseFileTab = "//accordion-heading[contains(.,'Choose File')]"
+DROAttachFIRFileTypeField = "//*[@id='EventBoard']/div[2]/div/div/div[2]/div/div/div/accordion/div/accordion-group[4]/div/div[2]/div/div/section/div[1]/div/ng-select/div/div/div[2]/input"
+DROAttachFIRChooseFile = "(//input[contains(@name,'myFile')])[1]"
+DROAttachFIRChooseFileSave = "(//button[contains(.,'Save')])[1]"
+DROFileUploadedSuccessfullyToaster = "(//div[contains(.,'File uploaded Successfully')])[4]"
+DROAttachFIRFileVerifyInAttachmentList = "//*[@id='EventBoard']/div[2]/div/div/div[2]/div/div/div/accordion/div/accordion-group[7]/div/div[2]/div/div/div/div/div/img"
+AttachmentListTab = "(//accordion-heading[contains(.,'Attachment List')])[1]"
+DROFleetTab = "//li[@title='Fleet Management']"
+PedingEventTransfer = "//span[contains(.,'TRANSFER')]"
+PedingEventTransferMore = "//a[contains(.,'More..')]"
+PedingEventTransferSelectUser = "//a[contains(.,'AUTOMATIONDOTWO')]"
+PedingEventTransferYes = "//button[contains(.,'Yes')]"
+DROEventTransferredSuccessfullyToaster = "(//div[contains(.,'Event Transferred successfully')])[4]"
+PedingEventTransferMoreSelectUser = "//td[contains(.,'AUTOMATIONDOTWO')]"
+DROUnitBoardDistrictWise = "//a[@href='#districtWiseUnits']"
+DROUnitBoardDistrictWiseValidate = "(//input[@name='districtWiseCheckBox'])[1]"
+DROAssignedUnitsTab = "(//accordion-heading[contains(.,'Assigned Units')])[1]"
+DROAssignedUnitsTabTreeDots = "//button[@class='dropdown-toggle btn actionsBtnList']"
+ManualMDTStatusUpdatedSuccessfullyToaster = "//div[@aria-live='polite'][contains(.,'Event status updated successfully')]"
+DROManualMDTStatusENROUTE = "//button[contains(.,'ENROUTE')]"
+DROManualMDTStatusARRIVED = "//button[contains(.,'ARRIVED')]"
+DROManualMDTStatusMDTCLOSED = "//button[contains(.,'MDT CLOSED')]"
+DROManualMDTStatusACKNOWLEDGE = "//button[contains(.,'ACKNOWLEDGE')]"
+DROUnassignEventFromMDT = "//button[contains(.,'CLEAR')]"
+DROUnassignEventFromMDTYes = "//button[contains(.,'Yes')]"
+UnitUnassignedSuccessfullyToaster = "(//div[contains(.,'Unit unassigned successfully')])[4]"
+VerifyPendingEventIDInDispatcher = "(//div[@class='row custom-row fixed-height-callsList ng-star-inserted']//span)[1]"
+DispatcherCreateManualEvent = "//li[@title='Manual Event']"
+DispatcherSOSDetailsEmergencyTab = "(//span[contains(.,'Emergency')])[1]"
+DispSelectUnitCheckbox = "(//input[contains(@name,'nearestchecked')])[1]"
+DispDispatchEventActionField = "//select[@class='inputedit default']"
+DISPSearchEventITextField = "//input[@placeholder='Search ...']"
+DISPEmergencyContactsFirstNumberValidate = "(//*[@id='emergencyDetails']/div/div[2])[1]"
+DISPEmergencyContactsFirstRelationValidate = "(//*[@id='emergencyDetails']/div/div[2])[1]"
+DispAppEmergencyContactsSecondNumberValidate = "(//*[@id='emergencyDetails']/div/div[3])[1]"
+DispAppEmergencyContactsSecondRelationValidate = "(//*[@id='emergencyDetails']/div/div[3])[1]"
+DispatcherSOSDetailsLocationTab = "(//span[contains(.,'Location')])[1]"
+DispatcherSOSDetailsLocationValidate = "//*[@id='sosMapTarget']/div/div/div/div[4]/div/canvas"
+DispatcherSOSDetailsName = "(//*[@id='registerdDetails']/div/table/tbody/tr[1]/td)[1]"
+DispatcherSOSDetailsGender = "//*[@id='registerdDetails']/div/table/tbody/tr[2]/td"
+
+
+#####################Call Taker################################################################
+
+CAD_EnterFUsername="(//input[contains(@class,'form-control inputedit')])[1]"
+CAD_EnterLUsername="(//input[contains(@class,'form-control inputedit')])[2]"
+CAD_PhoneNumber="(//input[contains(@class,'form-control inputedit')])[3]"
+CAD_SubEvent="(//ng-select[@bindvalue='id']/..//input)[9]"
+CAD_Address="(//textarea[contains(@class,'form-control textareaedit2')])[1]"
+CAD_SelectStation="(//ng-select[@bindvalue='id']/..//input)[14]"
+CAD_EnterNarrative="(//strong[text()='Narrative']/../..//textarea)[1]"
+CAD_Update="(//button[text()='Update'])[1]"
+CAD_INCFORM_Police="(//*[text()='Police'])[2]"
+CAD_INC_Details="(//*[text()='Details'])[2]"
+CAD_All_Resource_Selection="//*[text()=' All']"
+CAD_SelectedResCheckbox="//*[@class='allUnitsCheckBox']"
+CAD_AllUnitSearchField="//input[@name='allUnitsSearchText']"
+CAD_SortUnits="(//em[@title='Sort Units'])[8]"
+CAD_Select_Assign="//select[@class='inputedit default']"
+CAD_OK="//button[text()='Yes']"
+CAD_Dispatcher_Selection="(//select[contains(@class,'ng-untouched ')])[1]"
+CAD_Dispatcher_Workstation="(//select[contains(@class,'ng-untouched ')])[2]"
+CAD_Login="//button[contains(.,'LOG IN')]"
+CAD_CFSDelivered="//span[text()='CFS DELIVERED']"
+CAD_AllAssignedUnit="(//*[text()=' Assigned Units '])[1]"
+CAD_3dot="(//button[@id='button-container'])[24]"
+CAD_IncCadAddress="((//div[@class='ui-modal'])[15]//em)[7]"
+CAD_AddressSearch="//input[@placeholder='Search']"
+CAD_Addressok="//button[text()='OK']"
+CAD_MarkAddressPin="//button[@class='searchMarkBtn']"
+CAD_SUP="(//*[text()=' Supplemental Information '])[1]/..//div[@class='caret']"
+CADSup="//*[text()='+SUP']"
+CAD_AssignedUnits="(//*[text()=' Assigned Units '])[1]"
+CAD_Assigned_Event="(//div[@class='card-header callsListCard_header col-md-12']//span)[1]"
+CAD_AddressTypeSelection="//select[@class='switchBaseMap']"
+tet='document.querySelector("body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div > div.row.mt-1 > div.col-md-9 > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(1)")'
+ngCadSelectOperator = "//select[contains(@formcontrolname,'operator')]"
+ngcadSelectExtension = "//select[@formcontrolname='extension']"
+ngcadEnterUsename = "//input[contains(@placeholder,'Username')]"
+ngCadpassword = "//input[contains(@placeholder,'Password')]"
+ngCadlogin = "//button[contains(.,'LOG IN')]"
+ngCadManualEvent = "//img[@src='assets/images/side-panel/manualEvent.png']"
+ngCADSideMenu = "/html/body/app-root/app-app-load/div/div/t-container/t-sidebar/div"
+ngCADEventcreatedtoastervalidation = "//div[@class='messageBoxContent'][contains(.,'Event Created Successfully')]"
+CT_SideBar='document.querySelector("#User\\ Management > img")'
+CTManualEvent_PrimaryNarrative='return document.querySelector("#primary-narrative").shadowRoot.querySelector("textarea")'
+CTManualEvent_Creation_EventType_JS='return document.querySelector("body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div > div.row.mt-1 > div.col-10 > t-dropdown").shadowRoot.querySelector("div > div.select")'
+CTManualEvent_Creation_EventType_SearchField_JS='return document.querySelector("body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div > div.row.mt-1 > div.col-10 > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > input")'
+CTManualEvent_Creation_EventType_WithNo_Select_JS='return document.querySelector("body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div > div.row.mt-1 > div.col-10 > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(2)")'
+CTManualEvent_Create_JS='return document.querySelector("body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-footer > t-dialog-footer > div > t-button:nth-child(1)").shadowRoot.querySelector("button > label")'
+CT_Validate_HomePage="//span[contains(.,'POLICE')]"
+CT_Eventevent="(//*[@id='event-card-head'])[1]/..//div[@class='row event-card-con']"
+CT_BlankCall="(//li[@class='p-element p-menuitem ng-star-inserted'])[1]/../..//*[text()='BLANK CALL']"
+CT_AddressField='return document.querySelector("#calldetaddress").shadowRoot.querySelector("textarea")'
+CT_LandMark_Field='return document.querySelector("#distLandmark").shadowRoot.querySelector("#distLandmark")'
+CT_Place_Filed='return document.querySelector("#distInfoPlacename").shadowRoot.querySelector("#distInfoPlacename")'
+CT_PhoneNumber_Field='return document.querySelector("#distInfocontact").shadowRoot.querySelector("#distInfocontact")'
+CT_IncformGender='return document.querySelector("body > app-root > app-app-load > div > div > t-container > div > app-calltaker-home > div > div > div > div > div.IncidentInfoBase.p-0.m-0 > div > app-distress-form-component > div > div > div.callRegisterBody > div.distress-form-body > app-common-form > div > div:nth-child(5) > div > div:nth-child(1) > t-dropdown").shadowRoot.querySelector("div > div.select")'
+CT_GenderTextField='return document.querySelector("body > app-root > app-app-load > div > div > t-container > div > app-calltaker-home > div > div > div > div > div.IncidentInfoBase.p-0.m-0 > div > app-distress-form-component > div > div > div.callRegisterBody > div.distress-form-body > app-common-form > div > div:nth-child(5) > div > div:nth-child(1) > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > input")'
+CT_Gender_DropDown='return document.querySelector("body > app-root > app-app-load > div > div > t-container > div > app-calltaker-home > div > div > div > div > div.IncidentInfoBase.p-0.m-0 > div > app-distress-form-component > div > div > div.callRegisterBody > div.distress-form-body > app-common-form > div > div:nth-child(5) > div > div:nth-child(1) > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(2)")'
+CT_EVentform_Phnnumber='return document.querySelector("#distInfocontact").shadowRoot.querySelector("#distInfocontact")'
+CT_firstName='return document.querySelector("#distInfoName1").shadowRoot.querySelector("#distInfoName1")'
+CT_SubeventType='return document.querySelector("#sub-type").shadowRoot.querySelector("div")'
+CT_SubeventsearchType='return document.querySelector("#sub-type").shadowRoot.querySelector("div > div.menu.menu-open > input")'
+CT_Subeventoption='return document.querySelector("#sub-type").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(5)")'
+CT_Station_Filter='return document.querySelector("#filter-police").shadowRoot.querySelector("span > button")'
+CT_Filter_PoliceStation="//*[@id='all-police-filter']"
+CT_SelectPoliceStation="(((//table[@class='ttable'])[5]/..//tr[2])//t-button)[1]"
+
+CT_Notify_No="(//*[text()='No'])[2]"
+CT_EventDispatch="//t-button[@id='dispatch']"
+
+CT_SelectedEventDispatch="(//*[text()='DISPATCH'])[2]"
+CT_Dispatch_Confirm="//*[@id='updateButton']"
+Operator_Lagout_JS='return document.querySelector("body > app-root > app-app-load > div > t-header > div:nth-child(13) > t-button").shadowRoot.querySelector("span > button")'
+Operator_Lagout_Yes_JS='return document.querySelector("body > app-root > app-app-load > div > t-dialog:nth-child(3) > div.d-flex.justify-content-center.py-2.ng-star-inserted > div:nth-child(1) > t-button").shadowRoot.querySelector("button")'
+CT_SUP="//strong[contains(.,'+SUP')]"
+CT_Supliment_Person_Suspect_JS='return document.querySelector("#sup-persontype").shadowRoot.querySelector("div > div.select > span")'
+CT_Supliment_Person_Suspect_Select_JS='return document.querySelector("#sup-persontype").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(1)")'
+CT_Supliment_Person_Race_JS='return document.querySelector("#sup-race").shadowRoot.querySelector("#sup-race")'
+CT_Supliment_Person_Suspect="//t-dropdown[contains(@id,'sup-persontype')]"
+CT_Supliment_Person_Gender_Field="//t-dropdown[@id='sup-gender']"
+CT_Supliment_Person_Gender_Select='return document.querySelector("#sup-gender").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(2)")'
+CT_Supliment_Person_Age_JS='return document.querySelector("#sup-age").shadowRoot.querySelector("#sup-age")'
+CT_Supliment_Person_Clothing_JS='return document.querySelector("#sup-clothing").shadowRoot.querySelector("#sup-clothing")'
+CT_Supliment_Person_Demeanor_JS='return document.querySelector("#sup-demeanor").shadowRoot.querySelector("#sup-demeanor")'
+CT_Supliment_Person_Name_JS='return document.querySelector("#sup-name").shadowRoot.querySelector("#sup-name")'
+CT_Supliment_Person_Complexion_JS='return document.querySelector("#sup-complexion").shadowRoot.querySelector("#sup-complexion")'
+CT_Supliment_Person_Height_JS='return document.querySelector("#sup-height").shadowRoot.querySelector("#sup-height")'
+CT_Supliment_Person_Weight_JS='return document.querySelector("#sup-weight").shadowRoot.querySelector("#sup-weight")'
+CT_Supliment_Person_Hair_JS='return document.querySelector("#sup-haircolor").shadowRoot.querySelector("#sup-haircolor")'
+CT_Supliment_Person_Eye_JS='return document.querySelector("#sup-eyecolor").shadowRoot.querySelector("#sup-eyecolor")'
+CT_Supliment_Person_Relationship="//t-dropdown[contains(@id,'sup-relationship')]"
+CT_Supliment_Person_Relationship_Select_JS='return document.querySelector("#sup-relationship").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(2)")'
+CT_Supliment_Person_Contact_JS='return document.querySelector("#sup-person-contact").shadowRoot.querySelector("#sup-person-contact")'
+CT_Supliment_Person_Other_JS='return document.querySelector("#sup-person-remarks").shadowRoot.querySelector("textarea")'
+CT_Supliment_Person_Address_JS='return document.querySelector("#sup-address").shadowRoot.querySelector("textarea")'
+CT_Supliment_Person_Add="//t-button[contains(@id,'sup-add-person')]"
+CT_Supliment_Vehicle="//button[contains(.,'VEHICLE')]"
+CT_Supliment_Vehicle_Type="//t-dropdown[@id='sup-vehicle-type']"
+CT_Supliment_Vehicle_Type_JS='return document.querySelector("#sup-vehicle-type").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(1)")'
+CT_Supliment_Vehicle_RegiPlate_JS='return document.querySelector("#sup-registration-plate").shadowRoot.querySelector("#sup-registration-plate")'
+CT_Supliment_Vehicle_RegiPlateState_JS='return document.querySelector("#sup-registration-state").shadowRoot.querySelector("#sup-registration-state")'
+CT_Supliment_Vehicle_RegiPlateType_JS='return document.querySelector("#sup-registration-type").shadowRoot.querySelector("#sup-registration-type")'
+CT_Supliment_Vehicle_Color_JS='return document.querySelector("#sup-vehicle-color").shadowRoot.querySelector("#sup-vehicle-color")'
+CT_Supliment_Vehicle_Model_JS='return document.querySelector("#sup-vehiclemodel").shadowRoot.querySelector("#sup-vehiclemodel")'
+CT_Supliment_Vehicle_Make_JS='return document.querySelector("#sup-vehicle-make").shadowRoot.querySelector("#sup-vehicle-make")'
+CT_Supliment_Vehicle_Number_JS='return document.querySelector("#sup-vehicle-identification-number").shadowRoot.querySelector("#sup-vehicle-identification-number")'
+CT_Supliment_Vehicle_Remarks_JS='return document.querySelector("#sup-vehicle-remarks").shadowRoot.querySelector("textarea")'
+CT_Supliment_Vehicle_Add="//t-button[contains(@id,'sup-add-vehicle')]"
+CT_Supliment_Location="//button[contains(.,'LOCATION')]"
+CT_Supliment_Location_Tag_Field="//input[contains(@id,'sup-hazardous-names')]"
+CT_Supliment_Location_Caution_JS='return document.querySelector("#sup-caution").shadowRoot.querySelector("textarea")'
+CT_Supliment_Location_Add="//t-button[contains(@id,'sup-add-location')]"
+CT_Supliment_Other="//button[contains(.,'OTHER')]"
+CT_Supliment_Other_NoOfInjuries_JS='return document.querySelector("#sup-number-of-injuries").shadowRoot.querySelector("#sup-number-of-injuries")'
+CT_Supliment_Other_NoOfDeaths_JS='return document.querySelector("#sup-number-of-death").shadowRoot.querySelector("#sup-number-of-death")'
+CT_Supliment_Other_Add="//t-button[contains(@id,'sup-add-otherdetails')]"
+CTManualEvent_Creation_Number_SearchField_JS='return document.querySelector("body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div > div.row.mt-1.ng-star-inserted > div.col-md-10 > t-input").shadowRoot.querySelector("div > input")'
+CTManualEvent_Creation_EventType_WithoutNo_Select_JS='document.querySelector("body > ngb-modal-window > div > div > app-manul-event-window > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div > div.row.mt-1 > div.col-10 > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > ul > li.active")'
+CT_EMS="//*[@id='ems-btn']"
+CT_EMS_Filter="//t-button[@title='Filter Hospital']"
+CT_Filter_Hospitals="//*[@id='all-hospital-filter']"
+CT_Select_Hospital_Fire="((//table[@class='ttable'])[5]/../..//tr[2]//t-button)[1]"
+CT_EnterPickUplocation='return document.querySelector("#pickup").shadowRoot.querySelector("textarea")'
+CT_EnterDropUplocation='return document.querySelector("#dropat").shadowRoot.querySelector("textarea")'
+CT_NatureEmergency='return document.querySelector("#ems-agency-tab > app-ems-form > div:nth-child(4) > div > div:nth-child(1) > t-dropdown").shadowRoot.querySelector("div > div.select")'
+CT_EnterNatureEmergency='return document.querySelector("#ems-agency-tab > app-ems-form > div:nth-child(4) > div > div:nth-child(1) > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > input")'
+CT_SelectionEmergencyOption='return document.querySelector("#ems-agency-tab > app-ems-form > div:nth-child(4) > div > div:nth-child(1) > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(5)")'
+CT_HOS_serviceType='return document.querySelector("#ems-agency-tab > app-ems-form > div:nth-child(5) > div > div:nth-child(2) > div > t-dropdown").shadowRoot.querySelector("div > div.select")'
+CT_EnterHos_ServiceType='return document.querySelector("#ems-agency-tab > app-ems-form > div:nth-child(5) > div > div:nth-child(2) > div > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > input")'
+CT_SelectHOS_servicetype='return document.querySelector("#ems-agency-tab > app-ems-form > div:nth-child(5) > div > div:nth-child(2) > div > t-dropdown").shadowRoot.querySelector("div > div.menu.menu-open > ul > li")'
+CT_TimeLapse="(//*[@id='lapseTime'])[2]"
+CT_Fire="(//*[@id='fire-btn'])[1]"
+CT_Fire_Filter="//*[@id='filter-fire-station']"
+CT_Filter_Fire_Stations="//*[@id='all-fire-filter']"
+CT_FireEmergency='return document.querySelector("#nature-emergency").shadowRoot.querySelector("div > div.select")'
+CT_FireEnterEmergency='return document.querySelector("#nature-emergency").shadowRoot.querySelector("div > div.menu.menu-open > input")'
+CT_FireSelectionOption='return document.querySelector("#nature-emergency").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(5)")'
+CT_EnterFireNarative='return document.querySelector("#callerDistNarrative").shadowRoot.querySelector("textarea")'
+CT_PoliceButton="//*[@id='police-btn']"
+CT_AniEdit='return document.querySelector("#ani-edit").shadowRoot.querySelector("span > button > img")'
+
+########################25-07-2023#################################################################
+CT_AniFirstname='return document.querySelector("#ani-first-name").shadowRoot.querySelector("#ani-first-name")'
+CT_AniLastname='return document.querySelector("#ani-last-name").shadowRoot.querySelector("#ani-last-name")'
+CT_AniAlternativeCallNumber='return  document.querySelector("#ani-alt-number").shadowRoot.querySelector("#ani-alt-number")'
+
+CT_Aniserviceprovider='return document.querySelector("#ani-subscriber").shadowRoot.querySelector("div > div.select")'
+CT_AniEnterserviceprovider='return document.querySelector("#ani-subscriber").shadowRoot.querySelector("#ani-subscriber")'
+CT_AniSelectServiceOption='return document.querySelector("#ani-subscriber").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(1)")'
+
+CT_AniGenderselect='return document.querySelector("#ani-gender").shadowRoot.querySelector("div > div.select")'
+CT_AniEntergender='return document.querySelector("#ani-gender").shadowRoot.querySelector("div > div.menu.menu-open > input")'
+CT_AnienteredGender='return document.querySelector("#ani-gender").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(2)")'
+
+CT_AniSelectIdentity='return document.querySelector("#ani-gender").shadowRoot.querySelector("div > div.select")'
+CT_AniEnterIdentity='return document.querySelector("body > ngb-modal-window > div > div > app-ani-edit-info > t-dialog-custom > div > div.t-dialog-content > t-dialog-content > div:nth-child(3) > div:nth-child(2) > t-input").shadowRoot.querySelector("div > input")'
+CT_Ani_sel_identity_Option='return document.querySelector("#ani-gender").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(1)")'
+
+CT_ANI_SelectCity='return document.querySelector("#ani-city").shadowRoot.querySelector("div > div.select")'
+CT_ANI_EnterCity='return document.querySelector("#ani-city").shadowRoot.querySelector("div > div.menu.menu-open > input")'
+CT_ANI_Select_Entered_City='return document.querySelector("#ani-city").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(1)")'
+CT_Save="//*[@id='ani-save']"
+
+Ct_ANI_Address='return document.querySelector("#ani-address").shadowRoot.querySelector("textarea")'
+CT_getAniToaster="//div[contains(@class,'messageBoxContent')]"
+CT_getAniNumber="(//span[contains(@class,'ng-star-inserted')])[1]"
+CT_ANI_Copy="(//t-button[@id='ani-edit'])[2]"
+CT_ANI_Save="//button[text()='Yes']"
+CT_EventUpdatedSuccessFully="//div[contains(@class,'messageBoxContent')]"
+CT_ANI_BlockNumber="(//t-button[@id='ani-edit'])[3]"
+DISPOP_Selection="//select[contains(@formcontrolname,'operator')]"
+CT_OpenedDisp="(//*[text()='SHASHANKDIS'])[1]"
+CT_AnyDisp="(//table[@class='ttable'])[4]/../..//tr[2]"
+CT_GetIncidentid="(//*[@id='callRegisterEventId'])[1]"
+Disp_Verify_CFS="(//*[@id='event-card-head']/..//span)[1]"
+CT_AddSop="//*[text()='+SOP']"
+CT_SOP_Fire="//*[text()=' POLICE ']"
+CT_SOP_Information_Gathering="(//*[text()='Information Gathering'])[1]"
+CT_SOP_Behavioural="(//*[text()='Behavioural'])[1]"
+CT_SOP_Operational="(//*[text()='Operational'])[1]"
+CT_SOP_Attachment="((//*[text()='Information Gathering'])[1]/../../..//img)[1]"
+CT_ADD_Quentionaries="//*[text()='+QUES']"
+CT_SubeventTypeOption='return document.querySelector("#sub-type").shadowRoot.querySelector("div > div.menu.menu-open > ul > li:nth-child(22)")'
+CT_Multiselectcheckbox='//*[@id="multi-checkbox"]'
+CT_selectCheckboxone='(//input[@type="checkbox"])[4]'
+CT_selectCheckboxSecond='(//input[@type="checkbox"])[5]'
+CT_MultipleCheckboxclear='//t-button[@title="CLEAR"][contains(.,"Clear")]'
+CT_AddMapButton="//*[@id='mark-map-button']"
+CT_EnterAddressOnMap="//input[contains(@placeholder,'Search')]"
+CTSelectAddresspin="//button[contains(@title,'Mark Search Location')]"
+CT_UpdateAddress="//*[text()='UPDATE ']"
+CT_Eventlog="//img[@src='assets/images/side-panel/event.png']"
+CT_verifyEventid="//*[text()='Event Id']"
+CT_EventLogEventid='retrun document.querySelector("body > app-root > app-event-details > div > t-tabs > div > div.tcontent.tcontent679393 > section > t-tab-content > app-event-details-page > div > div > div:nth-child(1) > t-accordion:nth-child(1) > div > div > div > t-accordion-content > section > t-table > table > tbody > tr:nth-child(1) > td:nth-child(2)")'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
